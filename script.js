@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const phoneHeaderBtn = document.querySelector('.phone-header-btn');
   if (phoneHeaderBtn) {
     phoneHeaderBtn.addEventListener('click', function() {
-      const phoneNumber = '050-4033611';
+      const phoneNumber = '[business_phone]';
       window.location.href = 'tel:' + phoneNumber;
     });
   }
