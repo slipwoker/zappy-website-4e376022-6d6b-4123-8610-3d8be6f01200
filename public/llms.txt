@@ -1,0 +1,47 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### דף הבית
+https://gan-anglit.zappy5.app
+גן אנגלית - רשת גני ילדים פרטיים עם חינוך אנגלית מתקדם. תינוקייה וגן ילדים פרטי עם אנגלית באווירה מהנה ומטפחת.
+
+### התוכניות שלנו
+https://gan-anglit.zappy5.app/services
+גלו את התוכניות החינוכיות המגוונות של גן אנגלית - מתינוקייה ועד גן ילדים פרטי עם אנגלית. תוכניות מותאמות לכל גיל עם דגש על למידה מהנה.
+
+### אודות
+https://gan-anglit.zappy5.app/about
+הכירו את גן אנגלית - רשת גני ילדים פרטיים המובילה בחינוך דו-לשוני לגיל הרך. הסיפור שלנו, הערכים והצוות המקצועי שלנו.
+
+### צור קשר
+https://gan-anglit.zappy5.app/contact
+צרו קשר עם גן אנגלית להצטרפות לרשת גני הילדים הפרטיים המובילה. טופס יצירת קשר, פרטי התקשרות ומיקומים.
+
+## Legal & Policy
+
+### Privacy Policy
+https://gan-anglit.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://gan-anglit.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://gan-anglit.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://gan-anglit.zappy5.app/sitemap.xml
+- **Robots.txt**: https://gan-anglit.zappy5.app/robots.txt

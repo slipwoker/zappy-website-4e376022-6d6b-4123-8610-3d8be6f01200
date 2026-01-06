@@ -1,7 +1,8 @@
 <!DOCTYPE html><html lang="he" dir="rtl"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>התוכניות החינוכיות שלנו — גן אנגלית</title>
+    <meta name="robots" content="index, follow">
+  <title data-i18n="services_page_title">התוכניות החינוכיות שלנו — גן אנגלית</title>
   <meta name="description" content="גלו את התוכניות החינוכיות המגוונות של גן אנגלית - מתינוקייה ועד גן ילדים פרטי עם אנגלית. תוכניות מותאמות לכל גיל עם דגש על למידה מהנה.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -55,11 +56,13 @@
   opacity: 0.7;
 }</style>
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
     <!-- Mickidum Accessibility Toolbar -->
     <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
-<!-- Zappy Analytics -->
+
+    <!-- Iconify for cross-platform flag icons -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script><!-- Zappy Analytics -->
 <script>
 (function() {
   'use strict';
@@ -67,7 +70,7 @@
   // Configuration
   var config = {
     websiteId: '4e376022-6d6b-4123-8610-3d8be6f01200',
-    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    apiUrl: 'http://localhost:5001/api/analytics/track',
     sessionDuration: 30 * 60 * 1000, // 30 minutes
     visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
     trackPageViews: true,
@@ -262,61 +265,43 @@
 </script>
 <!-- End Zappy Analytics -->
 
-    <style id="zappy-mobile-submenu-styles">
-      /* Mobile submenu accordion styles */
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
       @media (max-width: 768px) {
-        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu {
-          position: static !important;
-          transform: none !important;
-          box-shadow: none !important;
-          background: transparent !important;
-          margin-top: 0 !important;
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          visibility: hidden;
-          transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
-          padding: 0 !important;
-          border-radius: 0 !important;
-        }
-        .sub-menu.mobile-expanded {
-          max-height: 500px !important;
-          opacity: 1 !important;
-          visibility: visible !important;
-          padding: 8px 0 8px 16px !important;
-        }
-        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded, html[lang="ar"] .sub-menu.mobile-expanded {
-          padding: 8px 16px 8px 0 !important;
-        }
-        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu {
-          opacity: 0; visibility: hidden; pointer-events: none;
-        }
-        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded {
-          opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
-        }
-        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) {
-          display: flex !important; flex-wrap: wrap !important; align-items: center !important;
-        }
-        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a {
-          flex: 1 !important;
-        }
-        .mobile-submenu-toggle {
-          display: flex !important; align-items: center !important; justify-content: center !important;
-          width: 44px !important; height: 44px !important; background: transparent !important;
-          border: none !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important;
-          flex-shrink: 0 !important; -webkit-tap-highlight-color: transparent;
-        }
-        .mobile-submenu-toggle::after {
-          content: '' !important; display: block !important; width: 0 !important; height: 0 !important;
-          border-left: 6px solid transparent !important; border-right: 6px solid transparent !important;
-          border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important;
-        }
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
         .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
-        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu {
-          flex-basis: 100% !important; width: 100% !important;
-        }
-        .sub-menu a { padding: 10px 0 !important; display: block !important; font-size: 14px !important; }
-        .sub-menu a:hover { background-color: transparent !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
       }
       @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
     </style>
@@ -326,13 +311,13 @@
 
 <!-- Zappy Attribution Header -->
 <div id="zappy-attribution-header" class="zappy-header" style="display: none;">
-  <p>Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link">Zappy</a></p>
+  <p data-i18n="services_p_15">Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link" data-i18n="services_link_31">Zappy</a></p>
 </div>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="/assets/logo.webp" alt="גן אנגלית" class="logo" />
+          <img src="/assets/logo.webp" alt="גן אנגלית" class="logo" data-i18n-alt="services_alt_58">
         </a>
       </div>
       
@@ -352,13 +337,21 @@
       </button>
       
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/services">התוכניות שלנו</a></li>
-        <li><a href="/about">אודות</a></li>
+        <li><a href="/services" data-i18n="services_nav_55">התוכניות שלנו</a></li>
+        <li><a href="/about" data-i18n="services_nav_56">אודות</a></li>
       </ul>
       
-      <div class="nav-cta-container">
+      
+<div class="lang-switcher" data-no-icon-edit="true" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
+  <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" data-no-icon-edit="true" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:inherit;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;" data-no-icon-edit="true"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
+  </button>
+  <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
+    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
+  </div>
+</div><div class="nav-cta-container">
         <li class="nav-cta-item">
-          <a href="/contact" class="nav-cta-btn">צור קשר</a>
+          <a href="/contact" class="nav-cta-btn" data-i18n="services_nav_57">צור קשר</a>
         </li>
       </div>
     </div>
@@ -366,15 +359,15 @@
 
   <section class="page-header">
     <div class="container">
-      <h1>התוכניות החינוכיות של גן אנגלית</h1>
-      <h3>תוכניות מותאמות אישית לכל שלב בהתפתחות הילד</h3>
+      <h1 data-i18n="services_h1_1">התוכניות החינוכיות של גן אנגלית</h1>
+      <h3 data-i18n="services_h3_7">תוכניות מותאמות אישית לכל שלב בהתפתחות הילד</h3>
     </div>
   </section>
 
   <section class="services-intro">
     <div class="container">
-      <p>בגן אנגלית פיתחנו תוכניות חינוכיות ייחודיות המותאמות לכל שלב בהתפתחות הילד, מגיל תינוקות ועד גיל גן חובה. כל תוכנית משלבת למידת אנגלית טבעית עם פעילויות מגוונות המעודדות התפתחות הרמונית בכל התחומים - קוגניטיבי, חברתי, רגשי ומוטורי. הצוות המקצועי שלנו, המורכב ממחנכות מוסמכות דוברות אנגלית ברמת שפת אם, מעניק לכל ילד תשומת לב אישית ומסגרת חמה ומאתגרת.</p>
-      <p>רשת גני הילדים הפרטיים שלנו מציעה סביבה בטוחה, נקייה ומעוררת השראה, עם ציוד חינוכי מתקדם וחצרות משחק מוצלות. אנו שמים דגש על יצירת קשר חם ואישי עם כל משפחה, ומעדכנים את ההורים באופן שוטף על ההתפתחות והצמיחה של ילדיהם.</p>
+      <p data-i18n="services_p_16">בגן אנגלית פיתחנו תוכניות חינוכיות ייחודיות המותאמות לכל שלב בהתפתחות הילד, מגיל תינוקות ועד גיל גן חובה. כל תוכנית משלבת למידת אנגלית טבעית עם פעילויות מגוונות המעודדות התפתחות הרמונית בכל התחומים - קוגניטיבי, חברתי, רגשי ומוטורי. הצוות המקצועי שלנו, המורכב ממחנכות מוסמכות דוברות אנגלית ברמת שפת אם, מעניק לכל ילד תשומת לב אישית ומסגרת חמה ומאתגרת.</p>
+      <p data-i18n="services_p_17">רשת גני הילדים הפרטיים שלנו מציעה סביבה בטוחה, נקייה ומעוררת השראה, עם ציוד חינוכי מתקדם וחצרות משחק מוצלות. אנו שמים דגש על יצירת קשר חם ואישי עם כל משפחה, ומעדכנים את ההורים באופן שוטף על ההתפתחות והצמיחה של ילדיהם.</p>
     </div>
   </section>
 
@@ -382,23 +375,23 @@
     <div class="container">
       <div class="program-detail-content">
         <div class="program-detail-text">
-          <h2>תינוקייה - גילאי 3 חודשים עד שנה</h2>
-          <p>התוכנית שלנו לתינוקות מתמקדת ביצירת סביבה בטוחה, מטפחת ומעשירה המאפשרת לתינוק להתפתח בקצב שלו. המחנכות שלנו מספקות טיפול אישי ואוהב לכל תינוק, תוך חשיפה ראשונית לצלילי השפה האנגלית דרך שירים, שיחות רכות ומשחקים חושיים.</p>
-          <p>התוכנית כוללת פעילויות מותאמות גיל כמו עיסוי תינוקות, משחקים מוטוריים, זמן בטן, ופעילויות חושיות המעודדות התפתחות מוטורית ותחושתית. אנו שמים דגש רב על שגרה יציבה ועקבית, המעניקה לתינוק תחושת ביטחון ושקט.</p>
+          <h2 data-i18n="services_h2_2">תינוקייה - גילאי 3 חודשים עד שנה</h2>
+          <p data-i18n="services_p_18">התוכנית שלנו לתינוקות מתמקדת ביצירת סביבה בטוחה, מטפחת ומעשירה המאפשרת לתינוק להתפתח בקצב שלו. המחנכות שלנו מספקות טיפול אישי ואוהב לכל תינוק, תוך חשיפה ראשונית לצלילי השפה האנגלית דרך שירים, שיחות רכות ומשחקים חושיים.</p>
+          <p data-i18n="services_p_19">התוכנית כוללת פעילויות מותאמות גיל כמו עיסוי תינוקות, משחקים מוטוריים, זמן בטן, ופעילויות חושיות המעודדות התפתחות מוטורית ותחושתית. אנו שמים דגש רב על שגרה יציבה ועקבית, המעניקה לתינוק תחושת ביטחון ושקט.</p>
           <div class="program-highlights">
-            <h3>דגשים בתוכנית:</h3>
+            <h3 data-i18n="services_h3_8">דגשים בתוכנית:</h3>
             <ul>
-              <li><i class="fas fa-check"></i> יחס אישי של 1:3 (מחנכת לתינוקות)</li>
-              <li><i class="fas fa-check"></i> חשיפה יומיומית לשפה האנגלית דרך שירים ושיחות</li>
-              <li><i class="fas fa-check"></i> פעילויות חושיות ומוטוריות מגוונות</li>
-              <li><i class="fas fa-check"></i> שגרה יציבה ועקבית</li>
-              <li><i class="fas fa-check"></i> תזונה בריאה ומאוזנת</li>
-              <li><i class="fas fa-check"></i> עדכונים יומיים להורים</li>
+              <li data-i18n="services_li_37"><i class="fas fa-check"></i> יחס אישי של 1:3 (מחנכת לתינוקות)</li>
+              <li data-i18n="services_li_38"><i class="fas fa-check"></i> חשיפה יומיומית לשפה האנגלית דרך שירים ושיחות</li>
+              <li data-i18n="services_li_39"><i class="fas fa-check"></i> פעילויות חושיות ומוטוריות מגוונות</li>
+              <li data-i18n="services_li_40"><i class="fas fa-check"></i> שגרה יציבה ועקבית</li>
+              <li data-i18n="services_li_41"><i class="fas fa-check"></i> תזונה בריאה ומאוזנת</li>
+              <li data-i18n="services_li_42"><i class="fas fa-check"></i> עדכונים יומיים להורים</li>
             </ul>
           </div>
         </div>
         <div class="program-detail-image">
-          <img data-placeholder="service-4" data-context="Caring nursery teacher holding and interacting with happy baby in bright, safe nursery room with soft toys and English learning materials" src="/assets/service-service-4.webp" alt="תינוקייה - טיפול אישי לתינוקות">
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450700754-pbm8aohbyxb" src="/assets/service-service-4-1765450696083-5hfruo.webp?v=1765450696146" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_59"></div>
         </div>
       </div>
     </div>
@@ -408,21 +401,21 @@
     <div class="container">
       <div class="program-detail-content">
         <div class="program-detail-image">
-          <img data-placeholder="service-5" data-context="Toddlers playing together with colorful educational toys in vibrant playroom, teacher engaging children in English learning activities" src="/assets/service-service-5.webp" alt="גן לפעוטות - פעילויות למידה מהנות">
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450755062-0cyofnhma5m" src="/assets/service-service-5-1765450750921-ugi08s.webp?v=1765450750994" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_60"></div>
         </div>
         <div class="program-detail-text">
-          <h2>גן לפעוטות - גילאי שנה עד שנתיים</h2>
-          <p>בגיל זה הילדים מתחילים לפתח עצמאות, סקרנות ומיומנויות חברתיות ראשוניות. התוכנית שלנו לפעוטות מתמקדת בעידוד חקירה עצמאית, פיתוח מיומנויות תקשורת בשפה האנגלית, ולמידה דרך משחק. המחנכות שלנו יוצרות סביבה מעוררת השראה המאפשרת לפעוטות לגלות, ללמוד ולצמוח.</p>
-          <p>התוכנית כוללת פעילויות מגוונות כמו זמן סיפור באנגלית, שירה ותנועה, יצירה ואמנות, משחק חופשי ומובנה, ופעילויות חוץ. אנו מעודדים התפתחות מיומנויות מוטוריות גסות ועדינות, וכן מיומנויות חברתיות כמו שיתוף פעולה, המתנה בתור וביטוי רגשות.</p>
+          <h2 data-i18n="services_h2_3">גן לפעוטות - גילאי שנה עד שנתיים</h2>
+          <p data-i18n="services_p_20">בגיל זה הילדים מתחילים לפתח עצמאות, סקרנות ומיומנויות חברתיות ראשוניות. התוכנית שלנו לפעוטות מתמקדת בעידוד חקירה עצמאית, פיתוח מיומנויות תקשורת בשפה האנגלית, ולמידה דרך משחק. המחנכות שלנו יוצרות סביבה מעוררת השראה המאפשרת לפעוטות לגלות, ללמוד ולצמוח.</p>
+          <p data-i18n="services_p_21">התוכנית כוללת פעילויות מגוונות כמו זמן סיפור באנגלית, שירה ותנועה, יצירה ואמנות, משחק חופשי ומובנה, ופעילויות חוץ. אנו מעודדים התפתחות מיומנויות מוטוריות גסות ועדינות, וכן מיומנויות חברתיות כמו שיתוף פעולה, המתנה בתור וביטוי רגשות.</p>
           <div class="program-highlights">
-            <h3>דגשים בתוכנית:</h3>
+            <h3 data-i18n="services_h3_9">דגשים בתוכנית:</h3>
             <ul>
-              <li><i class="fas fa-check"></i> למידת אנגלית דרך משחק וחוויה</li>
-              <li><i class="fas fa-check"></i> פיתוח מיומנויות חברתיות ורגשיות</li>
-              <li><i class="fas fa-check"></i> עידוד עצמאות ויוזמה</li>
-              <li><i class="fas fa-check"></i> פעילויות יצירתיות ואמנותיות</li>
-              <li><i class="fas fa-check"></i> זמן משחק חופשי ומובנה</li>
-              <li><i class="fas fa-check"></i> פעילויות חוץ יומיומיות</li>
+              <li data-i18n="services_li_43"><i class="fas fa-check"></i> למידת אנגלית דרך משחק וחוויה</li>
+              <li data-i18n="services_li_44"><i class="fas fa-check"></i> פיתוח מיומנויות חברתיות ורגשיות</li>
+              <li data-i18n="services_li_45"><i class="fas fa-check"></i> עידוד עצמאות ויוזמה</li>
+              <li data-i18n="services_li_46"><i class="fas fa-check"></i> פעילויות יצירתיות ואמנותיות</li>
+              <li data-i18n="services_li_47"><i class="fas fa-check"></i> זמן משחק חופשי ומובנה</li>
+              <li data-i18n="services_li_48"><i class="fas fa-check"></i> פעילויות חוץ יומיומיות</li>
             </ul>
           </div>
         </div>
@@ -434,23 +427,23 @@
     <div class="container">
       <div class="program-detail-content">
         <div class="program-detail-text">
-          <h2>גן ילדים - גילאי 2-4 שנים</h2>
-          <p>זהו השלב המרכזי בתוכנית גן אנגלית, שבו הילדים מפתחים מיומנויות שפה מתקדמות, מיומנויות חברתיות מורכבות, ויכולות קוגניטיביות גבוהות יותר. התוכנית שלנו לגן ילדים משלבת למידה מובנית עם משחק חופשי, ומכינה את הילדים לכיתה א' תוך שמירה על האווירה המהנה והמשחקית.</p>
-          <p>הילדים נחשפים למגוון רחב של נושאים ומושגים בשפה האנגלית, כולל אותיות, מספרים, צבעים, צורות, מדע טבע, ועוד. התוכנית כוללת זמן סיפור מורחב, פרויקטים נושאיים, פעילויות מתמטיות ומדעיות, אמנות ויצירה, מוזיקה ותנועה, ומשחקים קבוצתיים המעודדים שיתוף פעולה.</p>
+          <h2 data-i18n="services_h2_4">גן ילדים - גילאי 2-4 שנים</h2>
+          <p data-i18n="services_p_22">זהו השלב המרכזי בתוכנית גן אנגלית, שבו הילדים מפתחים מיומנויות שפה מתקדמות, מיומנויות חברתיות מורכבות, ויכולות קוגניטיביות גבוהות יותר. התוכנית שלנו לגן ילדים משלבת למידה מובנית עם משחק חופשי, ומכינה את הילדים לכיתה א' תוך שמירה על האווירה המהנה והמשחקית.</p>
+          <p data-i18n="services_p_23">הילדים נחשפים למגוון רחב של נושאים ומושגים בשפה האנגלית, כולל אותיות, מספרים, צבעים, צורות, מדע טבע, ועוד. התוכנית כוללת זמן סיפור מורחב, פרויקטים נושאיים, פעילויות מתמטיות ומדעיות, אמנות ויצירה, מוזיקה ותנועה, ומשחקים קבוצתיים המעודדים שיתוף פעולה.</p>
           <div class="program-highlights">
-            <h3>דגשים בתוכנית:</h3>
+            <h3 data-i18n="services_h3_10">דגשים בתוכנית:</h3>
             <ul>
-              <li><i class="fas fa-check"></i> שליטה מתקדמת בשפה האנגלית</li>
-              <li><i class="fas fa-check"></i> הכנה לכיתה א' - כתיבה, קריאה, מתמטיקה</li>
-              <li><i class="fas fa-check"></i> פיתוח מיומנויות חשיבה ופתרון בעיות</li>
-              <li><i class="fas fa-check"></i> פרויקטים נושאיים מרתקים</li>
-              <li><i class="fas fa-check"></i> פעילויות אמנות, מוזיקה ותנועה</li>
-              <li><i class="fas fa-check"></i> טיולים וסיורים חינוכיים</li>
+              <li data-i18n="services_li_49"><i class="fas fa-check"></i> שליטה מתקדמת בשפה האנגלית</li>
+              <li data-i18n="services_li_50"><i class="fas fa-check"></i> הכנה לכיתה א' - כתיבה, קריאה, מתמטיקה</li>
+              <li data-i18n="services_li_51"><i class="fas fa-check"></i> פיתוח מיומנויות חשיבה ופתרון בעיות</li>
+              <li data-i18n="services_li_52"><i class="fas fa-check"></i> פרויקטים נושאיים מרתקים</li>
+              <li data-i18n="services_li_53"><i class="fas fa-check"></i> פעילויות אמנות, מוזיקה ותנועה</li>
+              <li data-i18n="services_li_54"><i class="fas fa-check"></i> טיולים וסיורים חינוכיים</li>
             </ul>
           </div>
         </div>
         <div class="program-detail-image">
-          <img data-placeholder="service-6" data-context="Preschool children sitting in circle with teacher, engaged in interactive English learning activity with colorful educational materials" src="/assets/service-service-6.webp" alt="גן ילדים - למידה אינטראקטיבית">
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450808887-i5o1t854f9c" src="/assets/service-service-6-1765450804282-4qlwdo.webp?v=1765450804349" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_61"></div>
         </div>
       </div>
     </div>
@@ -458,27 +451,27 @@
 
   <section class="additional-programs">
     <div class="container">
-      <h2>תוכניות נוספות ושירותים מיוחדים</h2>
+      <h2 data-i18n="services_h2_5">תוכניות נוספות ושירותים מיוחדים</h2>
       <div class="additional-grid">
         <div class="additional-card">
-          <img data-placeholder="service-7" data-context="Children enjoying summer camp activities outdoors with English-speaking counselors, playing games and learning in sunny environment" src="/assets/service-service-7.webp" alt="קייטנת קיץ באנגלית">
-          <h3>קייטנת קיץ באנגלית</h3>
-          <p>תוכנית קיץ מיוחדת עם פעילויות מהנות ומרתקות באנגלית - משחקי מים, יצירה, בישול, טיולים ועוד. מתאים לגילאי 2-6.</p>
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450940460-btexdszcv1v" src="/assets/service-service-7-1765450935984-5kzu56.webp?v=1765450936055" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_62"></div>
+          <h3 data-i18n="services_h3_11">קייטנת קיץ באנגלית</h3>
+          <p data-i18n="services_p_24">תוכנית קיץ מיוחדת עם פעילויות מהנות ומרתקות באנגלית - משחקי מים, יצירה, בישול, טיולים ועוד. מתאים לגילאי 2-6.</p>
         </div>
         <div class="additional-card">
-          <img data-placeholder="service-8" data-context="Extended daycare setting with children doing homework and activities with caring staff in afternoon hours" src="/assets/service-service-8.webp" alt="צהרון מורחב">
-          <h3>צהרון מורחב</h3>
-          <p>שירות צהרון עד השעה 17:00 עם ארוחת צהריים חמה, מנוחה, ופעילויות העשרה. אפשרות גם לילדי גני חובה.</p>
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450901906-rrkj12g48ai" src="/assets/service-service-8-1765450896520-bvqhvu.webp?v=1765450896585" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_63"></div>
+          <h3 data-i18n="services_h3_12">צהרון מורחב</h3>
+          <p data-i18n="services_p_25">שירות צהרון עד השעה 17:00 עם ארוחת צהריים חמה, מנוחה, ופעילויות העשרה. אפשרות גם לילדי גני חובה.</p>
         </div>
         <div class="additional-card">
-          <img data-placeholder="service-9" data-context="Special needs child receiving individual attention from trained specialist in adapted learning environment" src="/assets/service-service-9.webp" alt="תוכניות לילדים עם צרכים מיוחדים">
-          <h3>שילוב ילדים עם צרכים מיוחדים</h3>
-          <p>אנו מאמינים בחינוך שוויוני ומקבלים ילדים עם צרכים מיוחדים. הצוות שלנו מקבל הכשרה מיוחדת ומעניק תמיכה אישית.</p>
+          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1765450859856-7ewfnjdl3kg" src="/assets/service-service-9-1765450855512-4jkkeb.webp?v=1765450855574" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%;" data-element-type="image" data-i18n-alt="services_alt_64"></div>
+          <h3 data-i18n="services_h3_13">שילוב ילדים עם צרכים מיוחדים</h3>
+          <p data-i18n="services_p_26">אנו מאמינים בחינוך שוויוני ומקבלים ילדים עם צרכים מיוחדים. הצוות שלנו מקבל הכשרה מיוחדת ומעניק תמיכה אישית.</p>
         </div>
         <div class="additional-card">
-          <img data-placeholder="service-10" data-context="Parent-teacher meeting in modern classroom, discussing child's progress with educational materials displayed" src="/assets/service-service-10.webp" alt="ליווי הורים והדרכה">
-          <h3>ליווי הורים והדרכה</h3>
-          <p>מפגשי הורים קבועים, ייעוץ אישי, וסדנאות הורות. אנו רואים בהורים שותפים מלאים בתהליך החינוכי.</p>
+          <img data-placeholder="service-10" data-context="Parent-teacher meeting in modern classroom, discussing child's progress with educational materials displayed" src="/assets/service-service-1-1765450643828-83gqlj.webp?v=1765450643934" alt="ליווי הורים והדרכה" data-i18n-alt="services_alt_65">
+          <h3 data-i18n="services_h3_14">ליווי הורים והדרכה</h3>
+          <p data-i18n="services_p_27">מפגשי הורים קבועים, ייעוץ אישי, וסדנאות הורות. אנו רואים בהורים שותפים מלאים בתהליך החינוכי.</p>
         </div>
       </div>
     </div>
@@ -486,10 +479,10 @@
 
   <section class="pricing-section">
     <div class="container">
-      <h2>מחירים ומסלולים</h2>
-      <p>אנו מציעים מגוון מסלולים גמישים המותאמים לצרכים של כל משפחה. המחירים משתנים בהתאם לגיל הילד, למסלול הנבחר ולשעות השהייה. ניתן לבחור בין מסלול מלא (5 ימים בשבוע), מסלול חלקי (3 ימים), או ימים בודדים. צרו איתנו קשר לקבלת הצעת מחיר מותאמת אישית.</p>
+      <h2 data-i18n="services_h2_6">מחירים ומסלולים</h2>
+      <p data-i18n="services_p_28">אנו מציעים מגוון מסלולים גמישים המותאמים לצרכים של כל משפחה. המחירים משתנים בהתאם לגיל הילד, למסלול הנבחר ולשעות השהייה. ניתן לבחור בין מסלול מלא (5 ימים בשבוע), מסלול חלקי (3 ימים), או ימים בודדים. צרו איתנו קשר לקבלת הצעת מחיר מותאמת אישית.</p>
       <div class="pricing-cta">
-        <a href="/contact" class="btn-primary">בקשו הצעת מחיר</a>
+        <a href="/contact" class="btn-primary" data-i18n="services_link_32">בקשו הצעת מחיר</a>
       </div>
     </div>
   </section>
@@ -504,27 +497,27 @@
       <div class="container">
         <div class="footer-main">
           <div class="all-rights-reserved">
-            <p>© 2025 גן אנגלית. כל הזכויות שמורות.</p>
+            <p data-i18n="services_p_29">© 2025 גן אנגלית. כל הזכויות שמורות.</p>
           </div>
           <div class="footer-social"><a href="https://facebook.com/[facebook_handle]" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 <a href="https://instagram.com/[instagram_handle]" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://wa.me/[whatsapp_handle]" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
           <div class="footer-legal">
-            <a href="privacy.html" aria-label="מדיניות פרטיות">
+            <a href="privacy.html" aria-label="מדיניות פרטיות" data-i18n="services_link_33">
               מדיניות פרטיות
             </a>
             <span class="separator">|</span>
-            <a href="accessibility.html" aria-label="נגישות">
+            <a href="accessibility.html" aria-label="נגישות" data-i18n="services_link_34">
               נגישות
             </a>
             <span class="separator">|</span>
-            <a href="terms.html" aria-label="תנאי שימוש">
+            <a href="terms.html" aria-label="תנאי שימוש" data-i18n="services_link_35">
               תנאי שימוש
             </a>
           </div>
         </div>
         <div class="zappy-attribution">
-          <p>נוצר באמצעות <a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Zappy</a></p>
+          <p data-i18n="services_p_30">נוצר באמצעות <a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;" data-i18n="services_link_36">Zappy</a></p>
         </div>
       </div>
     </footer>
@@ -562,6 +555,1095 @@
 })();
 </script>
     <div data-integration="accessibility:toolbar"></div>
+
+<!-- i18next Multi-Language Support -->
+<script>
+(function() {
+  // Language resources (inline to avoid CDN dependency)
+  const resources = {
+  "he": {
+    "translation": {
+      "home_h1_1": "גן אנגלית - חינוך איכותי בשפה האנגלית",
+      "home_h2_2": "למה לבחור בגן אנגלית?",
+      "home_h2_3": "מה מייחד את גן אנגלית שלנו?",
+      "home_h2_4": "התוכניות שלנו",
+      "home_h2_5": "מה הורים אומרים עלינו",
+      "home_h2_6": "מוכנים להצטרף למשפחת גן אנגלית?",
+      "home_h3_7": "רשת גני ילדים פרטיים המשלבת חינוך אנגלית מתקדם עם אווירה מטפחת ומהנה",
+      "home_h3_8": "למידת אנגלית טבעית",
+      "home_h3_9": "קבוצות קטנות",
+      "home_h3_10": "פעילויות מגוונות",
+      "home_h3_11": "אווירה חמה ומטפחת",
+      "home_h3_12": "תינוקייה (3 חודשים - שנה)",
+      "home_h3_13": "גן לפעוטות (שנה - שנתיים)",
+      "home_h3_14": "גן ילדים (2-4 שנים)",
+      "home_p_15": "Happily created by&nbsp;Zappy",
+      "home_p_16": "גן אנגלית היא רשת גני ילדים פרטיים המתמחה בחינוך דו-לשוני איכותי לגיל הרך. אנו מאמינים שהשנים הראשונות בחיי הילד הן קריטיות להתפתחותו השפתית, החברתית והרגשית. לכן פיתחנו תוכנית חינוכית ייחודית המשלבת למידת אנגלית טבעית עם פעילויות מהנות ומעשירות.",
+      "home_p_17": "בגן ילדים פרטי עם אנגלית שלנו, הילדים נחשפים לשפה האנגלית בצורה טבעית ומשחקית, תוך שהם מפתחים מهרויות חברתיות, יצירתיות וקוגניטיביות. הצוות המקצועי שלנו מורכב ממחנכות מוסמכות דוברות אנגלית ברמת שפת אם, המעניקות לכל ילד תשומת לב אישית ומסגרת חמה ומאתגרת.",
+      "home_p_18": "חשיפה יומיומית לשפה האנגלית דרך משחקים, שירים וסיפורים מעוררי דמיון",
+      "home_p_19": "יחס אישי ותשומת לב מירבית לכל ילד עם מחנכות מוסמכות ומנוסות",
+      "home_p_20": "יצירה, מוזיקה, תנועה ומשחק חופשי המעודדים התפתחות הרמונית",
+      "home_p_21": "סביבה בטוחה ואוהבת המעניקה לילדים תחושת שייכות וביטחון",
+      "home_p_22": "תוכנית מותאמת לתינוקות עם חשיפה ראשונית לצלילי אנגלית דרך שירים, משחקים חושיים ופעילויות מוטוריות",
+      "home_p_23": "תוכנית המתמקדת בפיתוח מיומנויות בסיסיות בשפה האנגלית תוך עידוד עצמאות והתפתחות חברתית",
+      "home_p_24": "תוכנית מקיפה המשלבת למידת אנגלית מתקדמת עם הכנה לבית הספר ופיתוח מיומנויות חשיבה",
+      "home_p_25": "\"גן אנגלית שינה לנו את החיים! הבת שלנו התקבלה בגיל שנה והיום, בגיל 3, היא מדברת אנגלית בצורה מדהימה. המחנכות מקצועיות ואוהבות, והאווירה פשוט מושלמת.\"",
+      "home_p_26": "\"כהורים, חיפשנו גן ילדים פרטי עם אנגלית שיעניק לילדים שלנו יתרון לעתיד. גן אנגלית עלה על כל הציפיות - השילוב של למידה ומשחק פשוט מדהים!\"",
+      "home_p_27": "\"התינוקייה של גן אנגלית היא המקום הכי טוב שיכולנו למצוא לבן שלנו. הוא מקבל תשומת לב אישית, נחשף לאנגלית מגיל צעיר, והכי חשוב - שמח ומרוצה כל יום!\"",
+      "home_p_28": "הצטרפו לרשת גני הילדים הפרטיים המובילה בארץ ותנו לילדים שלכם את היתרון של חינוך דו-לשוני איכותי",
+      "home_p_29": "© 2025 גן אנגלית. כל הזכויות שמורות.",
+      "home_p_30": "נוצר באמצעות Zappy",
+      "home_span_31": "הורים לילדה בת 3",
+      "home_span_32": "הורים לתאומים בני 2.5",
+      "home_span_33": "הורים לתינוק בן 8 חודשים",
+      "home_link_34": "Zappy",
+      "home_link_35": "הצטרפו אלינו היום",
+      "home_link_36": "גלו את כל התוכניות",
+      "home_link_37": "צרו קשר עכשיו",
+      "home_link_38": "מדיניות פרטיות",
+      "home_link_39": "נגישות",
+      "home_link_40": "תנאי שימוש",
+      "home_link_41": "Zappy",
+      "home_nav_42": "התוכניות שלנו",
+      "home_nav_43": "אודות",
+      "home_nav_44": "צור קשר",
+      "home_alt_45": "גן אנגלית",
+      "home_alt_46": "גן אנגלית - סביבה חינוכית מהנה לילדים",
+      "home_alt_47": "Image",
+      "home_alt_48": "Image",
+      "home_alt_49": "Image",
+      "home_meta_description": "גן אנגלית - רשת גני ילדים פרטיים עם חינוך אנגלית מתקדם. תינוקייה וגן ילדים פרטי עם אנגלית באווירה מהנה ומטפחת.",
+      "home_page_title": "גן אנגלית פרטי — חינוך איכותי לגיל הרך",
+      "services_h1_1": "התוכניות החינוכיות של גן אנגלית",
+      "services_h2_2": "תינוקייה - גילאי 3 חודשים עד שנה",
+      "services_h2_3": "גן לפעוטות - גילאי שנה עד שנתיים",
+      "services_h2_4": "גן ילדים - גילאי 2-4 שנים",
+      "services_h2_5": "תוכניות נוספות ושירותים מיוחדים",
+      "services_h2_6": "מחירים ומסלולים",
+      "services_h3_7": "תוכניות מותאמות אישית לכל שלב בהתפתחות הילד",
+      "services_h3_8": "דגשים בתוכנית:",
+      "services_h3_9": "דגשים בתוכנית:",
+      "services_h3_10": "דגשים בתוכנית:",
+      "services_h3_11": "קייטנת קיץ באנגלית",
+      "services_h3_12": "צהרון מורחב",
+      "services_h3_13": "שילוב ילדים עם צרכים מיוחדים",
+      "services_h3_14": "ליווי הורים והדרכה",
+      "services_p_15": "Happily created by&nbsp;Zappy",
+      "services_p_16": "בגן אנגלית פיתחנו תוכניות חינוכיות ייחודיות המותאמות לכל שלב בהתפתחות הילד, מגיל תינוקות ועד גיל גן חובה. כל תוכנית משלבת למידת אנגלית טבעית עם פעילויות מגוונות המעודדות התפתחות הרמונית בכל התחומים - קוגניטיבי, חברתי, רגשי ומוטורי. הצוות המקצועי שלנו, המורכב ממחנכות מוסמכות דוברות אנגלית ברמת שפת אם, מעניק לכל ילד תשומת לב אישית ומסגרת חמה ומאתגרת.",
+      "services_p_17": "רשת גני הילדים הפרטיים שלנו מציעה סביבה בטוחה, נקייה ומעוררת השראה, עם ציוד חינוכי מתקדם וחצרות משחק מוצלות. אנו שמים דגש על יצירת קשר חם ואישי עם כל משפחה, ומעדכנים את ההורים באופן שוטף על ההתפתחות והצמיחה של ילדיהם.",
+      "services_p_18": "התוכנית שלנו לתינוקות מתמקדת ביצירת סביבה בטוחה, מטפחת ומעשירה המאפשרת לתינוק להתפתח בקצב שלו. המחנכות שלנו מספקות טיפול אישי ואוהב לכל תינוק, תוך חשיפה ראשונית לצלילי השפה האנגלית דרך שירים, שיחות רכות ומשחקים חושיים.",
+      "services_p_19": "התוכנית כוללת פעילויות מותאמות גיל כמו עיסוי תינוקות, משחקים מוטוריים, זמן בטן, ופעילויות חושיות המעודדות התפתחות מוטורית ותחושתית. אנו שמים דגש רב על שגרה יציבה ועקבית, המעניקה לתינוק תחושת ביטחון ושקט.",
+      "services_p_20": "בגיל זה הילדים מתחילים לפתח עצמאות, סקרנות ומיומנויות חברתיות ראשוניות. התוכנית שלנו לפעוטות מתמקדת בעידוד חקירה עצמאית, פיתוח מיומנויות תקשורת בשפה האנגלית, ולמידה דרך משחק. המחנכות שלנו יוצרות סביבה מעוררת השראה המאפשרת לפעוטות לגלות, ללמוד ולצמוח.",
+      "services_p_21": "התוכנית כוללת פעילויות מגוונות כמו זמן סיפור באנגלית, שירה ותנועה, יצירה ואמנות, משחק חופשי ומובנה, ופעילויות חוץ. אנו מעודדים התפתחות מיומנויות מוטוריות גסות ועדינות, וכן מיומנויות חברתיות כמו שיתוף פעולה, המתנה בתור וביטוי רגשות.",
+      "services_p_22": "זהו השלב המרכזי בתוכנית גן אנגלית, שבו הילדים מפתחים מיומנויות שפה מתקדמות, מיומנויות חברתיות מורכבות, ויכולות קוגניטיביות גבוהות יותר. התוכנית שלנו לגן ילדים משלבת למידה מובנית עם משחק חופשי, ומכינה את הילדים לכיתה א' תוך שמירה על האווירה המהנה והמשחקית.",
+      "services_p_23": "הילדים נחשפים למגוון רחב של נושאים ומושגים בשפה האנגלית, כולל אותיות, מספרים, צבעים, צורות, מדע טבע, ועוד. התוכנית כוללת זמן סיפור מורחב, פרויקטים נושאיים, פעילויות מתמטיות ומדעיות, אמנות ויצירה, מוזיקה ותנועה, ומשחקים קבוצתיים המעודדים שיתוף פעולה.",
+      "services_p_24": "תוכנית קיץ מיוחדת עם פעילויות מהנות ומרתקות באנגלית - משחקי מים, יצירה, בישול, טיולים ועוד. מתאים לגילאי 2-6.",
+      "services_p_25": "שירות צהרון עד השעה 17:00 עם ארוחת צהריים חמה, מנוחה, ופעילויות העשרה. אפשרות גם לילדי גני חובה.",
+      "services_p_26": "אנו מאמינים בחינוך שוויוני ומקבלים ילדים עם צרכים מיוחדים. הצוות שלנו מקבל הכשרה מיוחדת ומעניק תמיכה אישית.",
+      "services_p_27": "מפגשי הורים קבועים, ייעוץ אישי, וסדנאות הורות. אנו רואים בהורים שותפים מלאים בתהליך החינוכי.",
+      "services_p_28": "אנו מציעים מגוון מסלולים גמישים המותאמים לצרכים של כל משפחה. המחירים משתנים בהתאם לגיל הילד, למסלול הנבחר ולשעות השהייה. ניתן לבחור בין מסלול מלא (5 ימים בשבוע), מסלול חלקי (3 ימים), או ימים בודדים. צרו איתנו קשר לקבלת הצעת מחיר מותאמת אישית.",
+      "services_p_29": "© 2025 גן אנגלית. כל הזכויות שמורות.",
+      "services_p_30": "נוצר באמצעות Zappy",
+      "services_link_31": "Zappy",
+      "services_link_32": "בקשו הצעת מחיר",
+      "services_link_33": "מדיניות פרטיות",
+      "services_link_34": "נגישות",
+      "services_link_35": "תנאי שימוש",
+      "services_link_36": "Zappy",
+      "services_li_37": "יחס אישי של 1:3 (מחנכת לתינוקות)",
+      "services_li_38": "חשיפה יומיומית לשפה האנגלית דרך שירים ושיחות",
+      "services_li_39": "פעילויות חושיות ומוטוריות מגוונות",
+      "services_li_40": "שגרה יציבה ועקבית",
+      "services_li_41": "תזונה בריאה ומאוזנת",
+      "services_li_42": "עדכונים יומיים להורים",
+      "services_li_43": "למידת אנגלית דרך משחק וחוויה",
+      "services_li_44": "פיתוח מיומנויות חברתיות ורגשיות",
+      "services_li_45": "עידוד עצמאות ויוזמה",
+      "services_li_46": "פעילויות יצירתיות ואמנותיות",
+      "services_li_47": "זמן משחק חופשי ומובנה",
+      "services_li_48": "פעילויות חוץ יומיומיות",
+      "services_li_49": "שליטה מתקדמת בשפה האנגלית",
+      "services_li_50": "הכנה לכיתה א' - כתיבה, קריאה, מתמטיקה",
+      "services_li_51": "פיתוח מיומנויות חשיבה ופתרון בעיות",
+      "services_li_52": "פרויקטים נושאיים מרתקים",
+      "services_li_53": "פעילויות אמנות, מוזיקה ותנועה",
+      "services_li_54": "טיולים וסיורים חינוכיים",
+      "services_nav_55": "התוכניות שלנו",
+      "services_nav_56": "אודות",
+      "services_nav_57": "צור קשר",
+      "services_alt_58": "גן אנגלית",
+      "services_alt_59": "Image",
+      "services_alt_60": "Image",
+      "services_alt_61": "Image",
+      "services_alt_62": "Image",
+      "services_alt_63": "Image",
+      "services_alt_64": "Image",
+      "services_alt_65": "ליווי הורים והדרכה",
+      "services_meta_description": "גלו את התוכניות החינוכיות המגוונות של גן אנגלית - מתינוקייה ועד גן ילדים פרטי עם אנגלית. תוכניות מותאמות לכל גיל עם דגש על למידה מהנה.",
+      "services_page_title": "התוכניות החינוכיות שלנו — גן אנגלית",
+      "about_h1_1": "הסיפור של גן אנגלית",
+      "about_h2_2": "הערכים שלנו",
+      "about_h2_3": "הגישה החינוכית שלנו",
+      "about_h2_4": "המתקנים והסביבה שלנו",
+      "about_h2_5": "הצוות המקצועי שלנו",
+      "about_h2_6": "הסניפים שלנו",
+      "about_h3_7": "מסע של חינוך, אהבה ומחויבות לילדים",
+      "about_h3_8": "אהבה וחום",
+      "about_h3_9": "מצויינות חינוכית",
+      "about_h3_10": "שותפות עם הורים",
+      "about_h3_11": "כיבוד הייחודיות",
+      "about_h3_12": "בטיחות ובריאות",
+      "about_h3_13": "חדשנות ופיתוח",
+      "about_h3_14": "כיתות מרווחות ומוארות",
+      "about_h3_15": "חצרות משחק מוצלות",
+      "about_h3_16": "מטבח כשר ומפוקח",
+      "about_h3_17": "מערכת אבטחה ומצלמות",
+      "about_h3_18": "מיזוג אוויר ואוורור",
+      "about_h3_19": "חדר מנוחה ומרפאה",
+      "about_h3_20": "מחנכות ראשיות",
+      "about_h3_21": "סייעות מקצועיות",
+      "about_h3_22": "מנהלות פדגוגיות",
+      "about_h3_23": "יועצות חינוכיות",
+      "about_p_24": "Happily created by&nbsp;Zappy",
+      "about_p_25": "גן אנגלית נוסד מתוך אמונה עמוקה בכוחו של חינוך איכותי לעצב את עתידם של ילדינו. כהורים בעצמנו, חיפשנו מקום שבו ילדינו יוכלו לצמוח, ללמוד ולהתפתח בסביבה חמה, מטפחת ומאתגרת. כשלא מצאנו את המקום המושלם, החלטנו ליצור אותו בעצמנו.",
+      "about_p_26": "הרעיון מאחורי גן אנגלית היה פשוט אך מהפכני - ליצור רשת גני ילדים פרטיים המשלבת חינוך דו-לשוני איכותי עם גישה חינוכית מתקדמת המכבדת את הייחודיות של כל ילד. ידענו שהשנים הראשונות בחיי הילד הן קריטיות להתפתחותו, ורצינו להעניק להורים אפשרות לתת לילדיהם את הבסיס הטוב ביותר לעתיד.",
+      "about_p_27": "היום, אחרי שנים של עבודה מסורה, גן אנגלית הפך לרשת המובילה בתחום החינוך הדו-לשוני לגיל הרך. אנו גאים במאות המשפחות שבחרו בנו, ובאלפי הילדים שצמחו והתפתחו במסגרות שלנו. כל יום מחדש אנו ממשיכים לפעול מתוך אותה תשוקה ומחויבות שהובילה אותנו מההתחלה - לתת לכל ילד את הכלים, האהבה והתמיכה שהוא צריך כדי להצליח.",
+      "about_p_28": "אנו מאמינים שאהבה והקשבה הם הבסיס לחינוך איכותי. כל ילד זוכה לתשומת לב אישית, חיבוק חם ותחושת שייכות.",
+      "about_p_29": "אנו שואפים למצויינות בכל מה שאנו עושים - מהתוכנית החינוכית ועד הצוות המקצועי והמסור שלנו.",
+      "about_p_30": "אנו רואים בהורים שותפים מלאים בתהליך החינוכי. תקשורת פתוחה, שקיפות ושיתוף פעולה הם הבסיס ליחסים שלנו.",
+      "about_p_31": "כל ילד הוא עולם ומלואו. אנו מכבדים את הקצב האישי של כל ילד ומעניקים לו את המרחב להיות עצמו.",
+      "about_p_32": "בטיחות הילדים היא בראש סדר העדיפויות שלנו. אנו שומרים על סטנדרטים גבוהים של ניקיון, בטיחות ובריאות.",
+      "about_p_33": "אנו מתעדכנים כל הזמן בחידושים פדגוגיים ומשלבים שיטות הוראה מתקדמות ומוכחות.",
+      "about_p_34": "הגישה החינוכית של גן אנגלית מבוססת על מחקרים עדכניים בתחום התפתחות הילד ורכישת שפות. אנו מאמינים שילדים לומדים בצורה הטובה ביותר דרך משחק, חוויה וחקירה עצמאית. לכן, התוכנית החינוכית שלנו בנויה סביב עקרונות אלה, תוך שילוב למידת אנגלית טבעית ואורגנית.",
+      "about_p_35": "אנו משתמשים בשיטת ה-Total Physical Response (TPR) ללמידת אנגלית, המשלבת תנועה, מוזיקה ומשחק. הילדים נחשפים לשפה האנגלית בהקשרים משמעותיים ורלוונטיים לחייהם, מה שמאפשר רכישה טבעית של השפה ללא לחץ או כפייה.",
+      "about_p_36": "בנוסף, אנו שמים דגש רב על פיתוח מיומנויות חברתיות ורגשיות. הילדים לומדים לזהות ולבטא רגשות, לפתור קונפליקטים בדרכי שלום, לשתף פעולה ולהתחשב באחרים. אנו מעודדים עצמאות, יוזמה ואחריות, ומעניקים לילדים הזדמנויות לקבל החלטות ולפתור בעיות.",
+      "about_p_37": "כל סניף של גן אנגלית תוכנן בקפידה ליצירת סביבה אידיאלית ללמידה והתפתחות. המתקנים שלנו כוללים:",
+      "about_p_38": "כל כיתה מצוידת בריהוט מותאם לגיל, פינות עניין מגוונות וחומרי למידה איכוtiים.",
+      "about_p_39": "חצרות בטוחות עם ציוד משחקים מתקדם, אזורי צל ומשטחים רכים למניעת פציעות.",
+      "about_p_40": "ארוחות בריאות ומאוזנות המוכנות במקום על ידי טבחית מקצועית, עם התאמה לאלרגיות.",
+      "about_p_41": "מערכת אבטחה מתקדמת עם מצלמות בכל המרחבים לבטיחות ושקט נפשי.",
+      "about_p_42": "מערכות מיזוג ואוורור מתקדמות לשמירה על טמפרטורה נעימה ואוויר צח.",
+      "about_p_43": "חדר שקט למנוחה, וציוד עזרה ראשונה לטיפול מיידי במקרה הצורך.",
+      "about_p_44": "הצוות של גן אנגלית הוא הלב הפועם של הארגון. כל מחנכת עוברת תהליך מיון קפדני ומקבלת הכשרה מתמשכת. הצוות שלנו כולל:",
+      "about_p_45": "מחנכות מוסמכות עם תואר בחינוך לגיל הרך, דוברות אנגלית ברמת שפת אם או דו-לשוניות. כל מחנכת עוברת הכשרה מיוחדת בשיטות ההוראה של גן אנגלית.",
+      "about_p_46": "סייעות מנוסות עם הכשרה בתחום התפתחות הילד וחינוך לגיל הרך. הסייעות שלנו עוברות קורסים מתמשכים ומקבלות הדרכה צמודה.",
+      "about_p_47": "מנהלות עם ניסיון רב בתחום החינוך, האחראיות על הפיקוח הפדגוגי, פיתוח תוכניות לימודים והדרכת הצוות.",
+      "about_p_48": "יועצות חינוכיות ופסיכולוגיות המלוות את הצוות ומספקות ייעוץ מקצועי למשפחות במקרה הצורך.",
+      "about_p_49": "גן אנגלית מפעילה מספר סניפים ברחבי הארץ, כל אחד עם אופי ייחודי אך עם אותם סטנדרטים גבוהים של איכות וחינוך. צרו איתנו קשר למציאת הסניף הקרוב אליכם והצטרפו למשפחת גן אנגלית.",
+      "about_p_50": "© 2025 גן אנגלית. כל הזכויות שמורות.",
+      "about_p_51": "נוצר באמצעות Zappy",
+      "about_link_52": "Zappy",
+      "about_link_53": "מצאו את הסניף הקרוב אליכם",
+      "about_link_54": "מדיניות פרטיות",
+      "about_link_55": "נגישות",
+      "about_link_56": "תנאי שימוש",
+      "about_link_57": "Zappy",
+      "about_nav_58": "התוכניות שלנו",
+      "about_nav_59": "אודות",
+      "about_nav_60": "צור קשר",
+      "about_alt_61": "גן אנגלית",
+      "about_meta_description": "הכירו את גן אנגלית - רשת גני ילדים פרטיים המובילה בחינוך דו-לשוני לגיל הרך. הסיפור שלנו, הערכים והצוות המקצועי שלנו.",
+      "about_page_title": "אודות גן אנגלית — הסיפור שלנו",
+      "contact_h1_1": "צרו קשר עם גן אנגלית",
+      "contact_h2_2": "שלחו לנו הודעה",
+      "contact_h2_3": "פרטי התקשרות",
+      "contact_h2_4": "שאלות נפוצות",
+      "contact_h3_5": "נשמח לענות על כל שאלה ולעזור לכם למצוא את המסגרת המושלמת לילדיכם",
+      "contact_h3_6": "טלפון",
+      "contact_h3_7": "אימייל",
+      "contact_h3_8": "כתובת",
+      "contact_h3_9": "שעות פעילות",
+      "contact_h3_10": "מעדיפים לדבר ישירות?",
+      "contact_h3_11": "מהו הגיל המינימלי לקבלה לגן אנגלית?",
+      "contact_h3_12": "האם צריך לדעת אנגלית מראש?",
+      "contact_h3_13": "מה כלול במחיר?",
+      "contact_h3_14": "האם אפשר לבקר בגן לפני ההרשמה?",
+      "contact_h3_15": "מה קורה אם הילד חולה?",
+      "contact_h3_16": "האם יש אפשרות לימים בודדים?",
+      "contact_p_17": "Happily created by&nbsp;Zappy",
+      "contact_p_18": "מלאו את הטופס ונחזור אליכם בהקדם האפשרי",
+      "contact_p_19": "[business_phone]",
+      "contact_p_20": "[business_email]",
+      "contact_p_21": "[business_address]",
+      "contact_p_22": "ראשון - חמישי: 7:00 - 17:00",
+      "contact_p_23": "שישי: 7:00 - 13:00",
+      "contact_p_24": "צרו איתנו קשר בטלפון או ב-WhatsApp",
+      "contact_p_25": "אנו מקבלים תינוקות מגיל 3 חודשים לתוכנית התינוקייה שלנו. לכל גיל יש תוכנית מותאמת ומחנכות מיומנות.",
+      "contact_p_26": "לא! הילדים נחשפים לאנגלית בצורה טבעית ומשחקית מהיום הראשון. אין צורך בידע מוקדם.",
+      "contact_p_27": "המחיר כולל את כל הארוחות (ארוחת בוקר, צהריים וחטיפים), חומרי למידה, פעילויות העשרה וביטוח.",
+      "contact_p_28": "בהחלט! אנו מעודדים הורים לבוא לסיור בגן, לפגוש את הצוות ולראות את המתקנים. צרו איתנו קשר לתיאום ביקור.",
+      "contact_p_29": "במקרה של מחלה, אנו ממליצים להשאיר את הילד בבית. ניתן לקבל החזר יחסי או לפצל את התשלום בהתאם למדיניות שלנו.",
+      "contact_p_30": "כן, אנו מציעים מסלולים גמישים כולל ימים בודדים, 3 ימים בשבוע או מסלול מלא של 5 ימים.",
+      "contact_p_31": "© 2025 גן אנגלית. כל הזכויות שמורות.",
+      "contact_p_32": "נוצר באמצעות Zappy",
+      "contact_link_33": "Zappy",
+      "contact_link_34": "[business_phone]",
+      "contact_link_35": "[business_email]",
+      "contact_link_36": "התקשרו עכשיו",
+      "contact_link_37": "שלחו הודעה",
+      "contact_link_38": "מדיניות פרטיות",
+      "contact_link_39": "נגישות",
+      "contact_link_40": "תנאי שימוש",
+      "contact_link_41": "Zappy",
+      "contact_btn_42": "שלח הודעה",
+      "contact_label_43": "שם מלא *",
+      "contact_label_44": "אימייל *",
+      "contact_label_45": "טלפון *",
+      "contact_label_46": "גיל הילד/ה",
+      "contact_label_47": "הודעה",
+      "contact_label_48": "אני מסכים/ה לתנאי השימוש ולמדיניות הפרטיות",
+      "contact_nav_49": "התוכניות שלנו",
+      "contact_nav_50": "אודות",
+      "contact_nav_51": "צור קשר",
+      "contact_placeholder_52": "הזינו את שמכם המלא",
+      "contact_placeholder_53": "example@email.com",
+      "contact_placeholder_54": "050-1234567",
+      "contact_placeholder_55": "ספרו לנו קצת על הצרכים שלכם...",
+      "contact_alt_56": "גן אנגלית",
+      "contact_meta_description": "צרו קשר עם גן אנגלית להצטרפות לרשת גני הילדים הפרטיים המובילה. טופס יצירת קשר, פרטי התקשרות ומיקומים.",
+      "contact_page_title": "צור קשר עם גן אנגלית — הצטרפו אלינו",
+      "legal_terms_h1_1": "תנאי שימוש",
+      "legal_terms_h2_2": "1. הגדרות",
+      "legal_terms_h2_3": "2. תיאור השירותים",
+      "legal_terms_h2_4": "3. תנאי השימוש",
+      "legal_terms_h2_5": "4. חובות המשתמש",
+      "legal_terms_h2_6": "5. מדיניות תשלומים והחזרים",
+      "legal_terms_h2_7": "6. הגבלת אחריות",
+      "legal_terms_h2_8": "7. זכויות יוצרים וקניין רוחני",
+      "legal_terms_h2_9": "8. פרטיות",
+      "legal_terms_h2_10": "9. שינוי תנאי השימוש",
+      "legal_terms_h2_11": "10. סיום השירות",
+      "legal_terms_h2_12": "11. דין חל ויישוב סכסוכים",
+      "legal_terms_h2_13": "12. הוראות כלליות",
+      "legal_terms_h2_14": "13. פרטי יצירת קשר",
+      "legal_terms_p_15": "[business_name] מספקת שירותים כלליים דרך האתר. השירותים כפופים לתנאים המפורטים במסמך זה \n            ועשויים להשתנות מעת לעת.",
+      "legal_terms_p_16": "השימוש באתר מותנה בעמידה בתנאים הבאים:",
+      "legal_terms_p_17": "במידה והשירותים כוללים תשלום:",
+      "legal_terms_p_18": "השירותים ניתנים \"כפי שהם\" ללא אחריות מכל סוג. החברה לא תהיה אחראית לנזקים עקיפים, \n            תוצאתיים או מיוחדים הנובעים משימוש באתר, למעט במקרים בהם החוק קובע אחרת.",
+      "legal_terms_p_19": "כל התכנים באתר, כולל טקסטים, תמונות, עיצוב וקוד, מוגנים בזכויות יוצרים השייכות ל[business_name]. \n            אסור לשכפל, להפיץ או לעשות שימוש מסחרי בתכנים ללא אישור בכתב.",
+      "legal_terms_p_20": "איסוף ושימוש במידע אישי כפופים למדיניות הפרטיות שלנו. השימוש באתר מהווה הסכמה \n            למדיניות הפרטיות כפי שמפורט בנפרד.",
+      "legal_terms_p_21": "החברה רשאית לשנות תנאי שימוש אלה בכל עת. שינויים מהותיים יפורסמו באתר עם הודעה מוקדמת \n            של 30 יום. המשך השימוש לאחר השינוי מהווה הסכמה לתנאים החדשים.",
+      "legal_terms_p_22": "החברה רשאית להפסיק או להגביל את השירות בכל עת, לרבות במקרה של הפרת תנאי השימוש. \n            במקרה של סיום השירות, יישמרו הוראות הסעיפים הרלוונטיים.",
+      "legal_terms_p_23": "תנאי שימוש אלה כפופים לחוקי מדינת ישראל. כל סכסוך יידון בבתי המשפט המוסמכים בישראל, \n            תוך מתן עדיפות לבוררות או גישור במידת האפשר.",
+      "legal_terms_p_24": "לשאלות או הבהרות בנוגע לתנאי השימוש:",
+      "legal_terms_link_25": "[business_email]",
+      "legal_terms_link_26": "[business_phone]",
+      "legal_terms_link_27": "← חזרה לאתר",
+      "legal_terms_li_28": "\"החברה\" - [business_name]",
+      "legal_terms_li_29": "\"המשתמש\" - כל מי שגולש או משתמש באתר",
+      "legal_terms_li_30": "\"השירותים\" - שירותים כלליים הניתנים דרך האתר",
+      "legal_terms_li_31": "השימוש באתר למטרות חוקיות בלבד",
+      "legal_terms_li_32": "אי-הפרעה לפעילות האתר או משתמשים אחרים",
+      "legal_terms_li_33": "אי-העלאת תוכן פוגעני, לא חוקי או מזיק",
+      "legal_terms_li_34": "כיבוד זכויות יוצרים וקניין רוחני",
+      "legal_terms_li_35": "אי-ביצוע פעולות שעלולות לפגוע באבטחת האתר",
+      "legal_terms_li_36": "מתן מידע נכון ומדויק בעת הרשמה או הזמנה",
+      "legal_terms_li_37": "שמירה על סודיות פרטי הגישה לחשבון",
+      "legal_terms_li_38": "הודעה מיידית על כל שימוש לא מורשה בחשבון",
+      "legal_terms_li_39": "עדכון מידע אישי במידת הצורך",
+      "legal_terms_li_40": "התשלומים מבוצעים דרך מערכות בטוחות ומוצפנות",
+      "legal_terms_li_41": "המחירים כוללים מע\"ם כנדרש בחוק",
+      "legal_terms_li_42": "זכות ביטול עסקה תעמוד בהתאם לחוק הגנת הצרכן",
+      "legal_terms_li_43": "החזרים יבוצעו תוך 14 ימי עסקים מאישור הביטול",
+      "legal_terms_li_44": "אם חלק מהתנאים יוכרז כבלתי תקף, יישארו שאר התנאים בתוקף",
+      "legal_terms_li_45": "אי-אכיפה של זכות לא תחשב כוויתור עליה",
+      "legal_terms_li_46": "תנאי השימוש מהווים את מלוא ההסכם בין הצדדים",
+      "legal_terms_li_47": "חברה: [business_name]",
+      "legal_terms_li_48": "אימייל: [business_email]",
+      "legal_terms_li_49": "טלפון: [business_phone]",
+      "legal_terms_li_50": "כתובת: [business_address]",
+      "legal_terms_page_title": "תנאי שימוש - [business_name]",
+      "legal_privacy_h1_1": "מדיניות פרטיות",
+      "legal_privacy_h2_2": "1. איסוף מידע",
+      "legal_privacy_h2_3": "2. שימוש במידע",
+      "legal_privacy_h2_4": "3. שיתוף מידע",
+      "legal_privacy_h2_5": "4. זכויות המשתמש",
+      "legal_privacy_h2_6": "5. עוגיות (Cookies)",
+      "legal_privacy_h2_7": "6. אבטחת מידע",
+      "legal_privacy_h2_8": "7. שינויים במדיניות",
+      "legal_privacy_h2_9": "8. יצירת קשר",
+      "legal_privacy_p_10": "[business_name] (\"החברה\", \"אנו\", \"שלנו\") מחויבת להגן על פרטיותכם. מדיניות פרטיות זו מסבירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
+      "legal_privacy_p_11": "אנו עשויים לאסוף את סוגי המידע הבאים:",
+      "legal_privacy_p_12": "אנו משתמשים במידע שנאסף למטרות הבאות:",
+      "legal_privacy_p_13": "אנו לא נמכור, נחכיר או נשתף את המידע האישי שלכם עם צדדים שלישיים, למעט במקרים הבאים:",
+      "legal_privacy_p_14": "בהתאם לחוק הגנת הפרטיות התשמ\"א-1981, יש לכם הזכויות הבאות:",
+      "legal_privacy_p_15": "אתרנו משתמש בעוגיות לשיפור חוויית השימוש. ניתן לנהל את העוגיות דרך הגדרות הדפדפן שלכם. \n            השבתת עוגיות עלולה להשפיע על פונקציונליות האתר.",
+      "legal_privacy_p_16": "אנו נוקטים באמצעי אבטחה סבירים להגנה על המידע שלכם, כולל הצפנה, חומות אש ובקרת גישה מוגבלת. \n            עם זאת, אף שיטת העברה או אחסון אינה בטוחה ב-100%.",
+      "legal_privacy_p_17": "אנו עשויים לעדכן מדיניות פרטיות זו מעת לעת. שינויים מהותיים יפורסמו באתר עם הודעה מוקדמת של 30 יום.",
+      "legal_privacy_p_18": "לשאלות או בקשות בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו:",
+      "legal_privacy_p_19": "רשם מאגרי המידע: לתלונות ניתן לפנות לרשם מאגרי המידע במשרד המשפטים",
+      "legal_privacy_link_20": "[business_email]",
+      "legal_privacy_link_21": "[business_phone]",
+      "legal_privacy_link_22": "← חזרה לאתר",
+      "legal_privacy_li_23": "מידע אישי: שם, כתובת אימייל, מספר טלפון וכתובת",
+      "legal_privacy_li_24": "מידע טכני: כתובת IP, סוג דפדפן, מערכת הפעלה ונתוני שימוש באתר",
+      "legal_privacy_li_25": "עוגיות: מידע הנשמר במחשבכם לשיפור חוויית השימוש",
+      "legal_privacy_li_26": "מתן השירותים המבוקשים",
+      "legal_privacy_li_27": "שיפור השירות וחוויית המשתמש",
+      "legal_privacy_li_28": "יצירת קשר עמכם בנוגע לשירותינו",
+      "legal_privacy_li_29": "עמידה בדרישות חוקיות",
+      "legal_privacy_li_30": "בהסכמתכם המפורשת",
+      "legal_privacy_li_31": "כאשר נדרש על פי חוק",
+      "legal_privacy_li_32": "להגנה על זכויותינו או בטחון משתמשינו",
+      "legal_privacy_li_33": "עם ספקי שירות המסייעים בהפעלת השירות (תחת הסכמי סודיות)",
+      "legal_privacy_li_34": "זכות עיון במידע האישי השמור עליכם",
+      "legal_privacy_li_35": "זכות לתיקון מידע שגוי או לא מדויק",
+      "legal_privacy_li_36": "זכות למחיקת מידע אישי בנסיבות מסוימות",
+      "legal_privacy_li_37": "זכות להתנגד לעיבוד מידע למטרות שיווק",
+      "legal_privacy_li_38": "זכות להגשת תלונה לרשם מאגרי המידע",
+      "legal_privacy_li_39": "חברה: [business_name]",
+      "legal_privacy_li_40": "אימייל: [business_email]",
+      "legal_privacy_li_41": "טלפון: [business_phone]",
+      "legal_privacy_li_42": "כתובת: [business_address]",
+      "legal_privacy_page_title": "מדיניות פרטיות - [business_name]",
+      "legal_accessibility_h1_1": "הצהרת נגישות",
+      "legal_accessibility_h2_2": "1. מדיניות הנגישות",
+      "legal_accessibility_h2_3": "2. הסדרי הנגישות באתר",
+      "legal_accessibility_h2_4": "3. טכנולוגיות מסייעות נתמכות",
+      "legal_accessibility_h2_5": "4. בדיקות נגישות",
+      "legal_accessibility_h2_6": "5. שיפורים מתמשכים",
+      "legal_accessibility_h2_7": "6. יצירת קשר ומשוב",
+      "legal_accessibility_h3_8": "תאימות לתקן WCAG 2.1",
+      "legal_accessibility_p_9": "[business_name] מחויבת להנגיש את השירותים לכלל הציבור. אנו פועלים ליישם את הנחיות התקן הישראלי \n            (ת\"י 5568) המבוסס על הנחיות WCAG 2.1 ברמת AA.",
+      "legal_accessibility_p_10": "אנו מאמינים בשוויון זכויות ובזכותו של כל אדם לקבל מידע ושירותים בצורה עצמאית ושוויונית. \n            אתר זה תוכנן ונבנה תוך מתן דגש מיוחד על נגישות לאנשים עם מוגבלויות.",
+      "legal_accessibility_p_11": "האתר תואם לרמת AA של תקן WCAG 2.1, הכולל:",
+      "legal_accessibility_p_12": "האתר נבדק באמצעות:",
+      "legal_accessibility_p_13": "אנו עובדים באופן מתמשך לשיפור נגישות האתר ומעדכנים אותו בהתאם להתפתחויות טכנולוגיות ולמשוב מהמשתמשים.",
+      "legal_accessibility_p_14": "אם נתקלתם בבעיית נגישות באתר או זקוקים לסיוע, אנא פנו אלינו:",
+      "legal_accessibility_p_15": "זמני מענה: נענה לפניות בנושא נגישות תוך 3 ימי עסקים ונפעל לפתרון תוך 10 ימי עסקים.",
+      "legal_accessibility_p_16": "תלונות: ניתן להגיש תלונה למשרד המשפטים - הנציבות לשוויון זכויות לאנשים עם מוגבלות",
+      "legal_accessibility_link_17": "[business_email]",
+      "legal_accessibility_link_18": "[business_phone]",
+      "legal_accessibility_link_19": "← חזרה לאתר",
+      "legal_accessibility_li_20": "תמיכה בניווט באמצעות מקלדת",
+      "legal_accessibility_li_21": "תמיכה בקוראי מסך",
+      "legal_accessibility_li_22": "ניגודיות צבעים מתאימה",
+      "legal_accessibility_li_23": "גדלי פונט גמישים וניתנים להגדלה",
+      "legal_accessibility_li_24": "תיאורי תמונות (Alt text) מפורטים",
+      "legal_accessibility_li_25": "כותרות מובנות היררכית",
+      "legal_accessibility_li_26": "קישורים תיאוריים וברורים",
+      "legal_accessibility_li_27": "תמיכה בזום עד 200% ללא אובדן תוכן",
+      "legal_accessibility_li_28": "נתפס (Perceivable): המידע מוצג בדרכים שמשתמשים יכולים לתפוס",
+      "legal_accessibility_li_29": "פעיל (Operable): רכיבי הממשק ניתנים להפעלה",
+      "legal_accessibility_li_30": "מובן (Understandable): המידע וממשק המשתמש מובנים",
+      "legal_accessibility_li_31": "חזק (Robust): התוכן יכול להיות מפוענח על ידי מגוון טכנולוגיות",
+      "legal_accessibility_li_32": "NVDA (Windows)",
+      "legal_accessibility_li_33": "JAWS (Windows)",
+      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_35": "TalkBack (Android)",
+      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_37": "Switch navigation",
+      "legal_accessibility_li_38": "כלים אוטומטיים לבדיקת נגישות",
+      "legal_accessibility_li_39": "בדיקות ידניות עם קוראי מסך",
+      "legal_accessibility_li_40": "ניווט באמצעות מקלדת בלבד",
+      "legal_accessibility_li_41": "בדיקת ניגודיות צבעים",
+      "legal_accessibility_li_42": "בדיקה עם משתמשים עם מוגבלויות",
+      "legal_accessibility_li_43": "חברה: [business_name]",
+      "legal_accessibility_li_44": "אימייל: [business_email]",
+      "legal_accessibility_li_45": "טלפון: [business_phone]",
+      "legal_accessibility_page_title": "הצהרת נגישות - [business_name]"
+    }
+  },
+  "en": {
+    "translation": {
+      "home_h1_1": "English Garden - Quality Education in English",
+      "home_h2_2": "Why Choose English Garden?",
+      "home_h2_3": "What Makes Our English Garden Special?",
+      "home_h2_4": "Our Programs",
+      "home_h2_5": "What Parents Say About Us",
+      "home_h2_6": "Ready to Join the English Garden Family?",
+      "home_h3_7": "A network of private kindergartens combining advanced English education with a nurturing and enjoyable atmosphere",
+      "home_h3_8": "Natural English Learning",
+      "home_h3_9": "Small Groups",
+      "home_h3_10": "Diverse Activities",
+      "home_h3_11": "Warm and Nurturing Atmosphere",
+      "home_h3_12": "Nursery (3 months - 1 year)",
+      "home_h3_13": "Toddler Garden (1-2 years)",
+      "home_h3_14": "Kindergarten (2-4 years)",
+      "home_p_15": "Happily created by&nbsp;Zappy",
+      "home_p_16": "English Garden is a network of private kindergartens specializing in quality bilingual education for early childhood. We believe that the first years of a child's life are critical for their linguistic, social, and emotional development. Therefore, we have developed a unique educational program that combines natural English learning with fun and enriching activities.",
+      "home_p_17": "In our private kindergarten with English, children are exposed to the English language naturally and playfully, while developing social, creative, and cognitive skills. Our professional staff consists of certified educators who are native English speakers, providing each child with personal attention and a warm, challenging environment.",
+      "home_p_18": "Daily exposure to English through games, songs, and imaginative stories",
+      "home_p_19": "Personal attention and maximum care for each child with certified and experienced educators",
+      "home_p_20": "Art, music, movement, and free play that encourage harmonious development",
+      "home_p_21": "A safe and loving environment that gives children a sense of belonging and security",
+      "home_p_22": "A program tailored for babies with initial exposure to English sounds through songs, sensory games, and motor activities",
+      "home_p_23": "A program focused on developing basic English language skills while encouraging independence and social development",
+      "home_p_24": "A comprehensive program combining advanced English learning with school preparation and thinking skills development",
+      "home_p_25": "\"English Garden changed our lives! Our daughter joined at age one and today, at age 3, she speaks English amazingly. The teachers are professional and loving, and the atmosphere is simply perfect.\"",
+      "home_p_26": "\"As parents, we were looking for a private kindergarten with English that would give our children an advantage for the future. English Garden exceeded all expectations - the combination of learning and play is simply amazing!\"",
+      "home_p_27": "\"English Garden's nursery is the best place we could find for our son. He receives personal attention, is exposed to English from a young age, and most importantly - he's happy and satisfied every day!\"",
+      "home_p_28": "Join the leading network of private kindergartens in the country and give your children the advantage of quality bilingual education",
+      "home_p_29": "© 2025 English Garden. All rights reserved.",
+      "home_p_30": "Created with Zappy",
+      "home_span_31": "Parents of a 3-year-old girl",
+      "home_span_32": "Parents of 2.5-year-old twins",
+      "home_span_33": "Parents of an 8-month-old baby",
+      "home_link_34": "Zappy",
+      "home_link_35": "Join Us Today",
+      "home_link_36": "Discover All Programs",
+      "home_link_37": "Contact Us Now",
+      "home_link_38": "Privacy Policy",
+      "home_link_39": "Accessibility",
+      "home_link_40": "Terms of Use",
+      "home_link_41": "Zappy",
+      "home_nav_42": "Our Programs",
+      "home_nav_43": "About",
+      "home_nav_44": "Contact",
+      "home_alt_45": "English Garden",
+      "home_alt_46": "English Garden - Fun educational environment for children",
+      "home_alt_47": "Image",
+      "home_alt_48": "Image",
+      "home_alt_49": "Image",
+      "home_meta_description": "English Garden - A network of private kindergartens with advanced English education. Nursery and private kindergarten with English in a fun and nurturing atmosphere.",
+      "home_page_title": "Private English Kindergarten — Quality Education for Early Childhood",
+      "services_h1_1": "Educational Programs at English Kindergarten",
+      "services_h2_2": "Nursery - Ages 3 months to 1 year",
+      "services_h2_3": "Toddler Garden - Ages 1 to 2 years",
+      "services_h2_4": "Kindergarten - Ages 2-4 years",
+      "services_h2_5": "Additional Programs and Special Services",
+      "services_h2_6": "Pricing and Programs",
+      "services_h3_7": "Customized programs for every stage of child development",
+      "services_h3_8": "Program highlights:",
+      "services_h3_9": "Program highlights:",
+      "services_h3_10": "Program highlights:",
+      "services_h3_11": "English Summer Camp",
+      "services_h3_12": "Extended Daycare",
+      "services_h3_13": "Integration of Children with Special Needs",
+      "services_h3_14": "Parent Support and Guidance",
+      "services_p_15": "Happily created by&nbsp;Zappy",
+      "services_p_16": "At English Kindergarten, we have developed unique educational programs tailored to every stage of child development, from infancy to mandatory kindergarten age. Each program combines natural English learning with diverse activities that encourage harmonious development in all areas - cognitive, social, emotional, and motor. Our professional staff, composed of certified educators who are native English speakers, provides each child with personal attention and a warm, challenging environment.",
+      "services_p_17": "Our private kindergarten network offers a safe, clean, and inspiring environment with advanced educational equipment and shaded playgrounds. We emphasize creating a warm and personal connection with each family, and regularly update parents on their children's development and growth.",
+      "services_p_18": "Our infant program focuses on creating a safe, nurturing, and enriching environment that allows babies to develop at their own pace. Our educators provide personal and loving care to each infant, while providing initial exposure to English language sounds through songs, gentle conversations, and sensory games.",
+      "services_p_19": "The program includes age-appropriate activities such as infant massage, motor games, tummy time, and sensory activities that encourage motor and sensory development. We place great emphasis on a stable and consistent routine, giving the infant a sense of security and calm.",
+      "services_p_20": "At this age, children begin to develop independence, curiosity, and initial social skills. Our toddler program focuses on encouraging independent exploration, developing communication skills in English, and learning through play. Our educators create an inspiring environment that allows toddlers to discover, learn, and grow.",
+      "services_p_21": "The program includes diverse activities such as English story time, singing and movement, arts and crafts, free and structured play, and outdoor activities. We encourage the development of gross and fine motor skills, as well as social skills such as cooperation, taking turns, and expressing emotions.",
+      "services_p_22": "This is the central stage in the English Kindergarten program, where children develop advanced language skills, complex social skills, and higher cognitive abilities. Our kindergarten program combines structured learning with free play, preparing children for first grade while maintaining a fun and playful atmosphere.",
+      "services_p_23": "Children are exposed to a wide range of topics and concepts in English, including letters, numbers, colors, shapes, natural science, and more. The program includes extended story time, thematic projects, mathematical and scientific activities, arts and crafts, music and movement, and group games that encourage cooperation.",
+      "services_p_24": "A special summer program with fun and engaging activities in English - water games, crafts, cooking, trips, and more. Suitable for ages 2-6.",
+      "services_p_25": "Daycare service until 5:00 PM with hot lunch, rest, and enrichment activities. Also available for mandatory kindergarten children.",
+      "services_p_26": "We believe in equal education and accept children with special needs. Our staff receives special training and provides individual support.",
+      "services_p_27": "Regular parent meetings, personal counseling, and parenting workshops. We see parents as full partners in the educational process.",
+      "services_p_28": "We offer a variety of flexible programs tailored to each family's needs. Prices vary according to the child's age, chosen program, and hours of stay. You can choose between a full program (5 days a week), partial program (3 days), or individual days. Contact us for a personalized quote.",
+      "services_p_29": "© 2025 English Kindergarten. All rights reserved.",
+      "services_p_30": "Created with Zappy",
+      "services_link_31": "Zappy",
+      "services_link_32": "Request a Quote",
+      "services_link_33": "Privacy Policy",
+      "services_link_34": "Accessibility",
+      "services_link_35": "Terms of Use",
+      "services_link_36": "Zappy",
+      "services_li_37": "Personal ratio of 1:3 (educator to infants)",
+      "services_li_38": "Daily exposure to English through songs and conversations",
+      "services_li_39": "Diverse sensory and motor activities",
+      "services_li_40": "Stable and consistent routine",
+      "services_li_41": "Healthy and balanced nutrition",
+      "services_li_42": "Daily updates to parents",
+      "services_li_43": "Learning English through play and experience",
+      "services_li_44": "Development of social and emotional skills",
+      "services_li_45": "Encouraging independence and initiative",
+      "services_li_46": "Creative and artistic activities",
+      "services_li_47": "Free and structured play time",
+      "services_li_48": "Daily outdoor activities",
+      "services_li_49": "Advanced proficiency in English",
+      "services_li_50": "First grade preparation - writing, reading, mathematics",
+      "services_li_51": "Development of thinking skills and problem solving",
+      "services_li_52": "Fascinating thematic projects",
+      "services_li_53": "Art, music and movement activities",
+      "services_li_54": "Educational trips and tours",
+      "services_nav_55": "Our Programs",
+      "services_nav_56": "About",
+      "services_nav_57": "Contact",
+      "services_alt_58": "גן אנגלית",
+      "services_alt_59": "Image",
+      "services_alt_60": "Image",
+      "services_alt_61": "Image",
+      "services_alt_62": "Image",
+      "services_alt_63": "Image",
+      "services_alt_64": "Image",
+      "services_alt_65": "Parent guidance and support",
+      "services_meta_description": "Discover the diverse educational programs of גן אנגלית - from nursery to private kindergarten with English. Age-appropriate programs with emphasis on enjoyable learning.",
+      "services_page_title": "Our Educational Programs — גן אנגלית",
+      "about_h1_1": "The Story of גן אנגלית",
+      "about_h2_2": "Our Values",
+      "about_h2_3": "Our Educational Approach",
+      "about_h2_4": "Our Facilities and Environment",
+      "about_h2_5": "Our Professional Team",
+      "about_h2_6": "Our Branches",
+      "about_h3_7": "A journey of education, love and commitment to children",
+      "about_h3_8": "Love and warmth",
+      "about_h3_9": "Educational excellence",
+      "about_h3_10": "Partnership with parents",
+      "about_h3_11": "Respecting uniqueness",
+      "about_h3_12": "Safety and health",
+      "about_h3_13": "Innovation and development",
+      "about_h3_14": "Spacious and bright classrooms",
+      "about_h3_15": "Shaded playgrounds",
+      "about_h3_16": "Kosher and supervised kitchen",
+      "about_h3_17": "Security system and cameras",
+      "about_h3_18": "Air conditioning and ventilation",
+      "about_h3_19": "Rest room and infirmary",
+      "about_h3_20": "Head teachers",
+      "about_h3_21": "Professional assistants",
+      "about_h3_22": "Pedagogical managers",
+      "about_h3_23": "Educational counselors",
+      "about_p_24": "Happily created by&nbsp;Zappy",
+      "about_p_25": "גן אנגלית was founded from a deep belief in the power of quality education to shape our children's future. As parents ourselves, we searched for a place where our children could grow, learn and develop in a warm, nurturing and challenging environment. When we couldn't find the perfect place, we decided to create it ourselves.",
+      "about_p_26": "The idea behind גן אנגלית was simple yet revolutionary - to create a network of private kindergartens that combines quality bilingual education with an advanced educational approach that respects each child's uniqueness. We knew that the first years of a child's life are critical to their development, and we wanted to give parents the opportunity to provide their children with the best foundation for the future.",
+      "about_p_27": "Today, after years of dedicated work, גן אנגלית has become the leading network in bilingual early childhood education. We are proud of the hundreds of families who chose us, and the thousands of children who grew and developed in our frameworks. Every day we continue to operate from the same passion and commitment that led us from the beginning - to give every child the tools, love and support they need to succeed.",
+      "about_p_28": "We believe that love and listening are the foundation of quality education. Every child receives personal attention, a warm hug and a sense of belonging.",
+      "about_p_29": "We strive for excellence in everything we do - from the educational program to our professional and dedicated team.",
+      "about_p_30": "We see parents as full partners in the educational process. Open communication, transparency and cooperation are the foundation of our relationships.",
+      "about_p_31": "Every child is a world unto themselves. We respect each child's personal pace and give them the space to be themselves.",
+      "about_p_32": "Children's safety is our top priority. We maintain high standards of cleanliness, safety and health.",
+      "about_p_33": "We constantly stay updated with pedagogical innovations and integrate advanced and proven teaching methods.",
+      "about_p_34": "The educational approach of גן אנגלית is based on current research in child development and language acquisition. We believe that children learn best through play, experience, and independent exploration. Therefore, our educational program is built around these principles, while integrating natural and organic English learning.",
+      "about_p_35": "We use the Total Physical Response (TPR) method for English learning, which combines movement, music, and play. Children are exposed to the English language in meaningful and relevant contexts to their lives, enabling natural language acquisition without pressure or coercion.",
+      "about_p_36": "Additionally, we place great emphasis on developing social and emotional skills. Children learn to identify and express emotions, resolve conflicts peacefully, cooperate, and consider others. We encourage independence, initiative, and responsibility, and provide children with opportunities to make decisions and solve problems.",
+      "about_p_37": "Each branch of גן אנגלית has been carefully designed to create an ideal environment for learning and development. Our facilities include:",
+      "about_p_38": "Each classroom is equipped with age-appropriate furniture, diverse interest corners, and high-quality learning materials.",
+      "about_p_39": "Safe courtyards with advanced playground equipment, shaded areas, and soft surfaces to prevent injuries.",
+      "about_p_40": "Healthy and balanced meals prepared on-site by a professional cook, with accommodations for allergies.",
+      "about_p_41": "Advanced security system with cameras in all areas for safety and peace of mind.",
+      "about_p_42": "Advanced air conditioning and ventilation systems to maintain pleasant temperature and fresh air.",
+      "about_p_43": "Quiet room for rest, and first aid equipment for immediate care when needed.",
+      "about_p_44": "The staff of גן אנגלית is the beating heart of the organization. Each educator undergoes a rigorous selection process and receives ongoing training. Our team includes:",
+      "about_p_45": "Certified educators with degrees in early childhood education, native or bilingual English speakers. Each educator receives special training in גן אנגלית teaching methods.",
+      "about_p_46": "Experienced assistants with training in child development and early childhood education. Our assistants undergo continuous courses and receive close guidance.",
+      "about_p_47": "Managers with extensive experience in education, responsible for pedagogical supervision, curriculum development, and staff training.",
+      "about_p_48": "Educational and psychological consultants who accompany the staff and provide professional advice to families when needed.",
+      "about_p_49": "גן אנגלית operates several branches throughout the country, each with a unique character but with the same high standards of quality and education. Contact us to find the branch nearest to you and join the גן אנגלית family.",
+      "about_p_50": "© 2025 גן אנגלית. All rights reserved.",
+      "about_p_51": "Created using Zappy",
+      "about_link_52": "Zappy",
+      "about_link_53": "Find the branch nearest to you",
+      "about_link_54": "Privacy Policy",
+      "about_link_55": "Accessibility",
+      "about_link_56": "Terms of Use",
+      "about_link_57": "Zappy",
+      "about_nav_58": "Our Programs",
+      "about_nav_59": "About",
+      "about_nav_60": "Contact",
+      "about_alt_61": "גן אנגלית",
+      "about_meta_description": "Meet גן אנגלית - the leading private kindergarten network in bilingual early childhood education. Our story, values, and professional team.",
+      "about_page_title": "About גן אנגלית — Our Story",
+      "contact_h1_1": "Contact גן אנגלית",
+      "contact_h2_2": "Send us a message",
+      "contact_h2_3": "Contact Information",
+      "contact_h2_4": "Frequently Asked Questions",
+      "contact_h3_5": "We'll be happy to answer any question and help you find the perfect framework for your children",
+      "contact_h3_6": "Phone",
+      "contact_h3_7": "Email",
+      "contact_h3_8": "Address",
+      "contact_h3_9": "Operating Hours",
+      "contact_h3_10": "Prefer to speak directly?",
+      "contact_h3_11": "What is the minimum age for admission to גן אנגלית?",
+      "contact_h3_12": "Do you need to know English beforehand?",
+      "contact_h3_13": "What is included in the price?",
+      "contact_h3_14": "Is it possible to visit the kindergarten before registration?",
+      "contact_h3_15": "What happens if the child is sick?",
+      "contact_h3_16": "Is there an option for individual days?",
+      "contact_p_17": "Happily created by&nbsp;Zappy",
+      "contact_p_18": "Fill out the form and we'll get back to you as soon as possible",
+      "contact_p_19": "[business_phone]",
+      "contact_p_20": "[business_email]",
+      "contact_p_21": "[business_address]",
+      "contact_p_22": "Sunday - Thursday: 7:00 AM - 5:00 PM",
+      "contact_p_23": "Friday: 7:00 AM - 1:00 PM",
+      "contact_p_24": "Contact us by phone or WhatsApp",
+      "contact_p_25": "We accept babies from 3 months old for our nursery program. Each age group has a tailored program with skilled educators.",
+      "contact_p_26": "No! Children are exposed to English naturally and playfully from day one. No prior knowledge is required.",
+      "contact_p_27": "The price includes all meals (breakfast, lunch, and snacks), learning materials, enrichment activities, and insurance.",
+      "contact_p_28": "Absolutely! We encourage parents to visit the kindergarten, meet our staff, and see our facilities. Contact us to schedule a visit.",
+      "contact_p_29": "In case of illness, we recommend keeping your child at home. Proportional refunds or payment adjustments are available according to our policy.",
+      "contact_p_30": "Yes, we offer flexible programs including individual days, 3 days a week, or a full 5-day program.",
+      "contact_p_31": "© 2025 גן אנגלית. All rights reserved.",
+      "contact_p_32": "Created with Zappy",
+      "contact_link_33": "Zappy",
+      "contact_link_34": "[business_phone]",
+      "contact_link_35": "[business_email]",
+      "contact_link_36": "Call Now",
+      "contact_link_37": "Send Message",
+      "contact_link_38": "Privacy Policy",
+      "contact_link_39": "Accessibility",
+      "contact_link_40": "Terms of Use",
+      "contact_link_41": "Zappy",
+      "contact_btn_42": "Send Message",
+      "contact_label_43": "Full Name *",
+      "contact_label_44": "Email *",
+      "contact_label_45": "Phone *",
+      "contact_label_46": "Child's Age",
+      "contact_label_47": "Message",
+      "contact_label_48": "I agree to the terms of use and privacy policy",
+      "contact_nav_49": "Our Programs",
+      "contact_nav_50": "About",
+      "contact_nav_51": "Contact",
+      "contact_placeholder_52": "Enter your full name",
+      "contact_placeholder_53": "example@email.com",
+      "contact_placeholder_54": "050-1234567",
+      "contact_placeholder_55": "Tell us a bit about your needs...",
+      "contact_alt_56": "גן אנגלית",
+      "contact_meta_description": "Contact גן אנגלית to join the leading private kindergarten network. Contact form, contact details and locations.",
+      "contact_page_title": "Contact גן אנגלית — Join Us",
+      "legal_terms_h1_1": "Terms of Use",
+      "legal_terms_h2_2": "1. Definitions",
+      "legal_terms_h2_3": "2. Service Description",
+      "legal_terms_h2_4": "3. Terms of Use",
+      "legal_terms_h2_5": "4. User Obligations",
+      "legal_terms_h2_6": "5. Payment and Refund Policy",
+      "legal_terms_h2_7": "6. Limitation of Liability",
+      "legal_terms_h2_8": "7. Copyright and Intellectual Property",
+      "legal_terms_h2_9": "8. Privacy",
+      "legal_terms_h2_10": "9. Modification of Terms of Use",
+      "legal_terms_h2_11": "10. Service Termination",
+      "legal_terms_h2_12": "11. Applicable Law and Dispute Resolution",
+      "legal_terms_h2_13": "12. General Provisions",
+      "legal_terms_h2_14": "13. Contact Information",
+      "legal_terms_p_15": "[business_name] provides general services through the website. The services are subject to the terms detailed in this document and may change from time to time.",
+      "legal_terms_p_16": "Use of the website is conditional upon compliance with the following terms:",
+      "legal_terms_p_17": "If the services include payment:",
+      "legal_terms_p_18": "The services are provided \"as is\" without warranty of any kind. The company will not be liable for indirect, consequential or special damages arising from use of the website, except in cases where the law provides otherwise.",
+      "legal_terms_p_19": "All content on the website, including texts, images, design and code, is protected by copyrights belonging to [business_name]. It is prohibited to copy, distribute or make commercial use of the content without written permission.",
+      "legal_terms_p_20": "Collection and use of personal information is subject to our privacy policy. Use of the website constitutes agreement to the privacy policy as detailed separately.",
+      "legal_terms_p_21": "The company may change these terms of use at any time. Material changes will be published on the website with 30 days' advance notice. Continued use after the change constitutes agreement to the new terms.",
+      "legal_terms_p_22": "The company may discontinue or limit the service at any time, including in case of violation of the terms of use. In case of service termination, the provisions of the relevant sections will remain in effect.",
+      "legal_terms_p_23": "These terms of use are subject to the laws of the State of Israel. Any dispute will be heard in the competent courts in Israel, with preference given to arbitration or mediation where possible.",
+      "legal_terms_p_24": "For questions or clarifications regarding the terms of use:",
+      "legal_terms_link_25": "[business_email]",
+      "legal_terms_link_26": "[business_phone]",
+      "legal_terms_link_27": "← Back to website",
+      "legal_terms_li_28": "\"The Company\" - [business_name]",
+      "legal_terms_li_29": "\"The User\" - anyone who browses or uses the website",
+      "legal_terms_li_30": "\"The Services\" - general services provided through the website",
+      "legal_terms_li_31": "Using the website for legal purposes only",
+      "legal_terms_li_32": "Not interfering with the website's operation or other users",
+      "legal_terms_li_33": "Not uploading offensive, illegal or harmful content",
+      "legal_terms_li_34": "Respecting copyrights and intellectual property",
+      "legal_terms_li_35": "Not performing actions that could harm the website's security",
+      "legal_terms_li_36": "Providing correct and accurate information during registration or ordering",
+      "legal_terms_li_37": "Maintaining confidentiality of account access details",
+      "legal_terms_li_38": "Immediate notification of any unauthorized use of the account",
+      "legal_terms_li_39": "Updating personal information as needed",
+      "legal_terms_li_40": "Payments are made through secure and encrypted systems",
+      "legal_terms_li_41": "Prices include VAT as required by law",
+      "legal_terms_li_42": "Right of cancellation will stand in accordance with consumer protection law",
+      "legal_terms_li_43": "Refunds will be processed within 14 business days from cancellation approval",
+      "legal_terms_li_44": "If part of the terms is declared invalid, the remaining terms will remain in effect",
+      "legal_terms_li_45": "Non-enforcement of a right will not be considered a waiver of it",
+      "legal_terms_li_46": "The terms of use constitute the entire agreement between the parties",
+      "legal_terms_li_47": "Company: [business_name]",
+      "legal_terms_li_48": "Email: [business_email]",
+      "legal_terms_li_49": "Phone: [business_phone]",
+      "legal_terms_li_50": "Address: [business_address]",
+      "legal_terms_page_title": "Terms of Use - [business_name]",
+      "legal_privacy_h1_1": "Privacy Policy",
+      "legal_privacy_h2_2": "1. Information Collection",
+      "legal_privacy_h2_3": "2. Use of Information",
+      "legal_privacy_h2_4": "3. Information Sharing",
+      "legal_privacy_h2_5": "4. User Rights",
+      "legal_privacy_h2_6": "5. Cookies",
+      "legal_privacy_h2_7": "6. Information Security",
+      "legal_privacy_h2_8": "7. Policy Changes",
+      "legal_privacy_h2_9": "8. Contact",
+      "legal_privacy_p_10": "[business_name] (\"the Company\", \"we\", \"our\") is committed to protecting your privacy. This privacy policy explains how we collect, use and protect your information when using the website www.company.com (\"the Service\").",
+      "legal_privacy_p_11": "We may collect the following types of information:",
+      "legal_privacy_p_12": "We use the collected information for the following purposes:",
+      "legal_privacy_p_13": "We will not sell, lease, or share your personal information with third parties, except in the following cases:",
+      "legal_privacy_p_14": "In accordance with the Privacy Protection Law 5741-1981, you have the following rights:",
+      "legal_privacy_p_15": "Our website uses cookies to improve user experience. You can manage cookies through your browser settings. Disabling cookies may affect website functionality.",
+      "legal_privacy_p_16": "We implement reasonable security measures to protect your information, including encryption, firewalls, and restricted access control. However, no method of transmission or storage is 100% secure.",
+      "legal_privacy_p_17": "We may update this privacy policy from time to time. Material changes will be published on the website with 30 days advance notice.",
+      "legal_privacy_p_18": "For questions or requests regarding this privacy policy, you may contact us:",
+      "legal_privacy_p_19": "Data Protection Registrar: For complaints, you may contact the Data Protection Registrar at the Ministry of Justice",
+      "legal_privacy_link_20": "[business_email]",
+      "legal_privacy_link_21": "[business_phone]",
+      "legal_privacy_link_22": "← Back to website",
+      "legal_privacy_li_23": "Personal information: name, email address, phone number, and address",
+      "legal_privacy_li_24": "Technical information: IP address, browser type, operating system, and website usage data",
+      "legal_privacy_li_25": "Cookies: information stored on your computer to improve user experience",
+      "legal_privacy_li_26": "Providing requested services",
+      "legal_privacy_li_27": "Improving service and user experience",
+      "legal_privacy_li_28": "Contacting you regarding our services",
+      "legal_privacy_li_29": "Compliance with legal requirements",
+      "legal_privacy_li_30": "With your explicit consent",
+      "legal_privacy_li_31": "When required by law",
+      "legal_privacy_li_32": "To protect our rights or the security of our users",
+      "legal_privacy_li_33": "With service providers who assist in operating the service (under confidentiality agreements)",
+      "legal_privacy_li_34": "Right to access personal information stored about you",
+      "legal_privacy_li_35": "Right to correct incorrect or inaccurate information",
+      "legal_privacy_li_36": "Right to delete personal information under certain circumstances",
+      "legal_privacy_li_37": "Right to object to information processing for marketing purposes",
+      "legal_privacy_li_38": "Right to file a complaint with the Data Protection Registrar",
+      "legal_privacy_li_39": "Company: [business_name]",
+      "legal_privacy_li_40": "Email: [business_email]",
+      "legal_privacy_li_41": "Phone: [business_phone]",
+      "legal_privacy_li_42": "Address: [business_address]",
+      "legal_privacy_page_title": "Privacy Policy - [business_name]",
+      "legal_accessibility_h1_1": "Accessibility Statement",
+      "legal_accessibility_h2_2": "1. Accessibility Policy",
+      "legal_accessibility_h2_3": "2. Website Accessibility Features",
+      "legal_accessibility_h2_4": "3. Supported Assistive Technologies",
+      "legal_accessibility_h2_5": "4. Accessibility Testing",
+      "legal_accessibility_h2_6": "5. Continuous Improvements",
+      "legal_accessibility_h2_7": "6. Contact and Feedback",
+      "legal_accessibility_h3_8": "WCAG 2.1 Compliance",
+      "legal_accessibility_p_9": "[business_name] is committed to making services accessible to the general public. We work to implement the Israeli Standard (SI 5568) guidelines based on WCAG 2.1 Level AA guidelines.",
+      "legal_accessibility_p_10": "We believe in equal rights and in every person's right to receive information and services independently and equally. This website was designed and built with special emphasis on accessibility for people with disabilities.",
+      "legal_accessibility_p_11": "The website complies with WCAG 2.1 Level AA standard, which includes:",
+      "legal_accessibility_p_12": "The website has been tested using:",
+      "legal_accessibility_p_13": "We work continuously to improve website accessibility and update it according to technological developments and user feedback.",
+      "legal_accessibility_p_14": "If you encounter an accessibility issue on the website or need assistance, please contact us:",
+      "legal_accessibility_p_15": "Response times: We respond to accessibility inquiries within 3 business days and work toward resolution within 10 business days.",
+      "legal_accessibility_p_16": "Complaints: You may file a complaint with the Ministry of Justice - Commissioner for Equal Rights of Persons with Disabilities",
+      "legal_accessibility_link_17": "[business_email]",
+      "legal_accessibility_link_18": "[business_phone]",
+      "legal_accessibility_link_19": "← Back to website",
+      "legal_accessibility_li_20": "Keyboard navigation support",
+      "legal_accessibility_li_21": "Screen reader support",
+      "legal_accessibility_li_22": "Appropriate color contrast",
+      "legal_accessibility_li_23": "Flexible and scalable font sizes",
+      "legal_accessibility_li_24": "Detailed image descriptions (Alt text)",
+      "legal_accessibility_li_25": "Hierarchically structured headings",
+      "legal_accessibility_li_26": "Descriptive and clear links",
+      "legal_accessibility_li_27": "Zoom support up to 200% without content loss",
+      "legal_accessibility_li_28": "Perceivable: Information is presented in ways users can perceive",
+      "legal_accessibility_li_29": "Operable: Interface components are operable",
+      "legal_accessibility_li_30": "Understandable: Information and user interface are understandable",
+      "legal_accessibility_li_31": "Robust: Content can be interpreted by a variety of technologies",
+      "legal_accessibility_li_32": "NVDA (Windows)",
+      "legal_accessibility_li_33": "JAWS (Windows)",
+      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_35": "TalkBack (Android)",
+      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_37": "Switch navigation",
+      "legal_accessibility_li_38": "Automated accessibility testing tools",
+      "legal_accessibility_li_39": "Manual testing with screen readers",
+      "legal_accessibility_li_40": "Keyboard-only navigation",
+      "legal_accessibility_li_41": "Color contrast testing",
+      "legal_accessibility_li_42": "Testing with users with disabilities",
+      "legal_accessibility_li_43": "Company: [business_name]",
+      "legal_accessibility_li_44": "Email: [business_email]",
+      "legal_accessibility_li_45": "Phone: [business_phone]",
+      "legal_accessibility_page_title": "Accessibility Statement - [business_name]"
+    }
+  }
+};
+  
+  // RTL languages
+  const rtlLanguages = ["he"];
+  
+  // Available languages
+  const availableLanguages = ["he","en"];
+  
+  // Language display info with SVG flag images for cross-platform compatibility
+  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"<img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"<img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"}};
+  
+  // Detect stored language preference - only use stored value, not browser language
+  // This ensures the site respects its original design (e.g., RTL Hebrew site stays RTL by default)
+  function detectLanguage() {
+    const stored = localStorage.getItem('zappy_lang');
+    if (stored && availableLanguages.includes(stored)) return stored;
+    
+    // Always default to the site's default language, not browser language
+    // This prevents breaking the original site layout on first visit
+    return 'he';
+  }
+  
+  // Simple i18n implementation (no external dependency)
+  const zappyI18n = {
+    language: detectLanguage(),
+    resources: resources,
+    t: function(key) {
+      const langResources = this.resources[this.language];
+      if (langResources && langResources.translation && langResources.translation[key]) {
+        return langResources.translation[key];
+      }
+      // Fallback to default language
+      const fallbackResources = this.resources['he'];
+      if (fallbackResources && fallbackResources.translation && fallbackResources.translation[key]) {
+        return fallbackResources.translation[key];
+      }
+      return key;
+    },
+    changeLanguage: function(lang) {
+      if (!availableLanguages.includes(lang)) return Promise.resolve();
+      this.language = lang;
+      localStorage.setItem('zappy_lang', lang);
+      updateContent();
+      updateDirection();
+      return Promise.resolve();
+    },
+    getCurrentLanguage: function() { return this.language; },
+    getAvailableLanguages: function() { return availableLanguages; }
+  };
+  
+  // Update all translatable content
+  function updateContent() {
+    // Newline character for detection
+    var newlineChar = String.fromCharCode(10);
+    
+    // Update text content - use innerHTML only when text contains line breaks
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      var translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        // Check if translation contains newlines that need to be rendered as <br>
+        if (translation.indexOf(newlineChar) !== -1) {
+          // Convert newlines to <br> and use innerHTML to preserve HTML formatting
+          el.innerHTML = translation.split(newlineChar).join('<br>');
+        } else {
+          // No newlines, use textContent for safety
+          el.textContent = translation;
+        }
+      }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('placeholder', translation);
+      }
+    });
+    
+    // Update alt attributes
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-alt');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('alt', translation);
+      }
+    });
+    
+    // Update title attributes
+    document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-title');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('title', translation);
+      }
+    });
+    
+    // Update meta description
+    document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-content');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('content', translation);
+      }
+    });
+    
+    // Update page title
+    const titleEl = document.querySelector('title[data-i18n]');
+    if (titleEl) {
+      const key = titleEl.getAttribute('data-i18n');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        document.title = translation;
+      }
+    }
+  }
+  
+  // Update document direction based on language
+  function updateDirection() {
+    const currentLang = zappyI18n.language;
+    const isRTL = rtlLanguages.includes(currentLang);
+    const html = document.documentElement;
+    const body = document.body;
+    const newDir = isRTL ? 'rtl' : 'ltr';
+    
+    // Update html element - only direction, NOT text-align (preserve centered elements)
+    html.setAttribute('lang', currentLang);
+    html.setAttribute('dir', newDir);
+    html.style.direction = newDir;
+    
+    // Update body element - only direction
+    if (body) {
+      body.setAttribute('dir', newDir);
+      body.style.direction = newDir;
+    }
+    
+    // Update major content containers - only direction, NOT text-align
+    // This preserves centered hero sections, titles, etc.
+    document.querySelectorAll('main, article, section, .content, .container, .wrapper').forEach(function(el) {
+      el.style.direction = newDir;
+      // Do NOT set text-align - preserve original alignment (center, left, right)
+    });
+    
+    // ONLY apply text-align to legal page content
+    document.querySelectorAll('.legal-content, .terms-content, .privacy-content').forEach(function(el) {
+      el.style.direction = newDir;
+      el.style.textAlign = isRTL ? 'right' : 'left';
+    });
+    
+    // Update navigation/header - set direction and justify-content
+    // Don't set flex-direction here - let CSS handle it with media queries to preserve mobile menu
+    document.querySelectorAll('header, nav, .navbar, .nav-container, .header-container').forEach(function(el) {
+      el.style.direction = newDir;
+      el.style.justifyContent = 'flex-start';
+      // Only set flex-direction on desktop (check viewport width)
+      if (window.innerWidth >= 768) {
+        el.style.flexDirection = 'row';
+      }
+    });
+    
+    // Update nav menus/links container - reset margins (include #navMenu id selector)
+    // Don't override flex-direction on mobile menus
+    document.querySelectorAll('.nav-menu, .nav-links, .menu, nav ul, header ul, #navMenu').forEach(function(el) {
+      el.style.direction = newDir;
+      el.style.marginLeft = '0';
+      el.style.marginRight = '0';
+      // Only set flex-direction on desktop
+      if (window.innerWidth >= 768) {
+        el.style.flexDirection = 'row';
+      }
+    });
+    
+    // Reset all nav link margins to keep them near logo
+    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li').forEach(function(el) {
+      // Skip CTA buttons - they need their auto margin
+      if (el.classList.contains('btn') || el.classList.contains('button') || el.classList.contains('cta') || 
+          el.className.includes('btn-') || el.className.includes('button-')) {
+        return;
+      }
+      el.style.marginLeft = '0';
+      el.style.marginRight = '0';
+    });
+    
+    // Reset logo margins (including nav-brand class)
+    document.querySelectorAll('.logo, .site-logo, .brand, .navbar-brand, .nav-brand').forEach(function(el) {
+      el.style.marginLeft = '0';
+      el.style.marginRight = '0';
+    });
+    
+    // Position language switcher next to CTA - it should have the auto margin to push both to the end
+    document.querySelectorAll('header .lang-switcher, nav .lang-switcher, .navbar .lang-switcher').forEach(function(el) {
+      if (isRTL) {
+        el.style.marginRight = 'auto';
+        el.style.marginLeft = '8px';
+      } else {
+        el.style.marginLeft = 'auto';
+        el.style.marginRight = '8px';
+      }
+    });
+    
+    // CTA buttons should be right after language switcher (no auto margin needed if lang-switcher has it)
+    document.querySelectorAll('header .btn, header .button, header .cta, nav .btn, nav .button, .navbar .btn, .nav-cta-container, .cta-container, .header-cta, .nav-cta').forEach(function(el) {
+      // Remove auto margins from CTA since lang-switcher handles positioning
+      el.style.marginLeft = '0';
+      el.style.marginRight = '0';
+    });
+    
+    // Globe icon SVG for language switcher button (minimal design, no chevron)
+    const globeIconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>';
+    
+    // Update language switcher display - just the globe icon, no arrow
+    const currentLangEl = document.querySelector('.lang-switcher-current');
+    if (currentLangEl) {
+      currentLangEl.innerHTML = globeIconSvg;
+    }
+    
+    // Update dropdown options (show all except current)
+    document.querySelectorAll('.lang-switcher-dropdown').forEach(function(dropdown) {
+      dropdown.innerHTML = availableLanguages
+        .filter(function(lang) { return lang !== currentLang; })
+        .map(function(lang) {
+          const info = languageInfo[lang] || { flag: '🌐', flagImg: '🌐', nativeName: lang };
+          // Use flagImg (SVG) for cross-platform compatibility, fallback to emoji flag
+          return '<button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;">' + (info.flagImg || info.flag) + ' ' + info.nativeName + '</button>';
+        })
+        .join('');
+      
+      // Re-attach event listeners
+      dropdown.querySelectorAll('.lang-option').forEach(function(option) {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = this.getAttribute('data-lang');
+          zappyI18n.changeLanguage(lang);
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        });
+      });
+    });
+  }
+  
+  // Initialize language switcher dropdown
+  function initLanguageSwitcher() {
+    const switchers = document.querySelectorAll('.lang-switcher');
+    if (!switchers.length) return;
+    
+    switchers.forEach(function(switcher) {
+      const dropdown = switcher.querySelector('.lang-switcher-dropdown');
+      const current = switcher.querySelector('.lang-switcher-current');
+      
+      if (!current || !dropdown) return;
+      
+      // Ensure dropdown is hidden initially (inline style fallback)
+      dropdown.style.opacity = '0';
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.transform = 'translateY(-8px)';
+      
+      // Toggle dropdown with inline styles
+      current.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.style.opacity === '1';
+        if (isOpen) {
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        } else {
+          dropdown.style.opacity = '1';
+          dropdown.style.visibility = 'visible';
+          dropdown.style.transform = 'translateY(0)';
+        }
+      });
+      
+      // Handle language selection
+      dropdown.querySelectorAll('.lang-option').forEach(function(option) {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = this.getAttribute('data-lang');
+          zappyI18n.changeLanguage(lang);
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        });
+      });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.lang-switcher-dropdown').forEach(function(dropdown) {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateY(-8px)';
+      });
+    });
+  }
+  
+  // Initialize on DOM ready
+  function init() {
+    updateContent();
+    updateDirection();
+    initLanguageSwitcher();
+  }
+  
+  // Expose to global scope
+  window.zappyI18n = zappyI18n;
+  
+  // Run initialization
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
     <script id="zappy-mobile-submenu-script">
     (function() {
