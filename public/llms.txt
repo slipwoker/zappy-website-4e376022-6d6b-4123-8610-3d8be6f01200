@@ -1,47 +1,57 @@
-# Business — Generative Engine Optimization Map
+# גן אנגלית — Generative Engine Optimization Map
+
+> A חינוך לגיל הרך business.
 
 ---
 
 ## Pages
 
 ### דף הבית
-https://gan-anglit.zappy5.app
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com
 גן אנגלית - רשת גני ילדים פרטיים עם חינוך אנגלית מתקדם. תינוקייה וגן ילדים פרטי עם אנגלית באווירה מהנה ומטפחת.
 
 ### התוכניות שלנו
-https://gan-anglit.zappy5.app/services
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/services
 גלו את התוכניות החינוכיות המגוונות של גן אנגלית - מתינוקייה ועד גן ילדים פרטי עם אנגלית. תוכניות מותאמות לכל גיל עם דגש על למידה מהנה.
 
 ### אודות
-https://gan-anglit.zappy5.app/about
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/about
 הכירו את גן אנגלית - רשת גני ילדים פרטיים המובילה בחינוך דו-לשוני לגיל הרך. הסיפור שלנו, הערכים והצוות המקצועי שלנו.
 
 ### צור קשר
-https://gan-anglit.zappy5.app/contact
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/contact
 צרו קשר עם גן אנגלית להצטרפות לרשת גני הילדים הפרטיים המובילה. טופס יצירת קשר, פרטי התקשרות ומיקומים.
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://gan-anglit.zappy5.app/privacy
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://gan-anglit.zappy5.app/terms
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://gan-anglit.zappy5.app/accessibility
+https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About גן אנגלית
+גן אנגלית is a business in the חינוך לגיל הרך industry.
+
+## Target Audience
+הורים לתינוקות וילדים עד גיל גן חובה
+
+## Industry
+חינוך לגיל הרך
+
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://gan-anglit.zappy5.app/sitemap.xml
-- **Robots.txt**: https://gan-anglit.zappy5.app/robots.txt
+- **Sitemap**: https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/sitemap.xml
+- **Robots.txt**: https://zappy-site-4e376022-6d6b-4123-8610.onrender.com/robots.txt
